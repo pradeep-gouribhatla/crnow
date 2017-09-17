@@ -1,0 +1,46 @@
+{
+    "name": "sn-rcr",
+    "version": "1.0.1",
+    "description": "ServiceNow Code Review Tool",
+    "main": "index.js",
+    "bin": {
+        "crnow": "./index.js"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pradeep-gouribhatla/sn-rcr.git"
+    },
+    "keywords": ["CodeReview", "SN"],
+    "engines": {
+        "node": ">=7.8.0"
+    },
+    "author": "pradeep.gouribhatla",
+    "license": "BSD-2-Clause",
+    "bugs": {
+        "url": "https://github.com/pradeep-gouribhatla/sn-rcr/issues"
+    },
+    "homepage": "https://github.com/pradeep-gouribhatla/sn-rcr#readme",
+    "devDependencies": {},
+    "dependencies": {
+        "axios": "^0.16.2",
+        "eslint": "^4.6.0",
+        "eslint-config-standard": "^10.2.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-node": "^5.1.1",
+        "eslint-plugin-promise": "^3.5.0",
+        "eslint-plugin-standard": "^3.0.1",
+        "file-system": "^2.2.2",
+        "inquirer": "^3.2.3",
+        "lodash": "^4.17.4",
+        "xml2js": "^0.4.19",
+        "chalk": "^2.1.0",
+        "figlet": "^1.2.0",
+        "handlebars": "^4.0.10",
+        "minimist": "^1.2.0",
+        "openurl": "^1.1.1",
+        "simple-git": "^1.77.0"
+    }
+}

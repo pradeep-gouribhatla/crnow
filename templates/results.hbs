@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Service Now Code Review Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="sn navbar-brand" href="#" aria-label="Service Now"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto"></ul>
+        {{!-- <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> --}}
+      </div>
+    </nav>
+    <div class="container">  
+        <div class="files--container">
+            <h3>RCR CLI REPORT</h2>
+            {{!-- <p>Instance : {{instanceName}}</p> --}}
+            <p>Instance : <a href="{{instanceURL}}">{{instanceURL}}</a></p>
+            <p>Report generated at : {{reportRunAt}} </p>
+            <p>Executed by user : {{userName}}</p>
+            <hr>    
+            {{#each results}}
+            <div class="file--container">
+                <h6>File Name : {{fileName}} [{{type}}]</h6>
+                {{#unless errorCount}}<p>No Errors Found</p>{{/unless}}
+                {{#if errorCount}}
+                <p>Error count: {{errorCount}} </p>
+                <p>Warning count: {{warningCount}} </p>
+                <p>File last modified by : {{updatedBy}}</p>
+                <table class="table table-hover table-inverse">
+                    <thead>
+                        <tr>
+                        <th>Line#</th>
+                        <th>Rule Id</th>
+                        <th>Message</th>
+                        <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each messages}}
+                        <tr>
+                            <td class="x--col-2">Line {{line}}:{{column}}</td>
+                            <td class="x--col-2">{{ruleId}}</td>
+                            <td class="x--col-3">{{message}}</td>
+                            <td class="x--col-5 code">
+                                {{#each source_lines}}
+                                    <span class="{{erClass}}">
+                                        [{{line}}]: {{source}}
+                                    </span><br>
+                                {{/each}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>    
+    </div>
+
+    <div class="row"></div>
+    <hr>
+    <footer class="text-center">
+        <p>©ServiceNow 2017</p>
+    </footer>
+</body>
+</html>

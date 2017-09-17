@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Service Now Code Review Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="sn navbar-brand" href="#" aria-label="Service Now"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto"></ul>
+      </div>
+    </nav>
+    <div class="container">  
+        <div class="files--container">
+            <h3>RCR CLI REPORT</h2>
+            <p>Instance : <a href="https://demoplace.service-now.com">https://demoplace.service-now.com</a></p>
+            <p>Report generated at : Sun Sep 17 2017 16:56:15 GMT+0530 (IST) </p>
+            <p>Executed by user : pradeep</p>
+            <hr>    
+            <div class="file--container">
+                <h6>File Name : MyTestScript [Business Rule]</h6>
+                
+                <p>Error count: 2 </p>
+                <p>Warning count: 0 </p>
+                <p>File last modified by : admin</p>
+                <table class="table table-hover table-inverse">
+                    <thead>
+                        <tr>
+                        <th>Line#</th>
+                        <th>Rule Id</th>
+                        <th>Message</th>
+                        <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="x--col-2">Line 1:1</td>
+                            <td class="x--col-2">_SNOW0012</td>
+                            <td class="x--col-3"> function declaration not found</td>
+                            <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span><br>
+                                    <span class="">
+                                        [2]: 
+                                    </span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="x--col-2">Line 1:62</td>
+                            <td class="x--col-2">_SNOW0004</td>
+                            <td class="x--col-3">gr ; In place of getRowcount use glide aggregate to get result count</td>
+                            <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span><br>
+                                    <span class="">
+                                        [2]: 
+                                    </span><br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="file--container">
+                <h6>File Name : ProcessACRResults [Business Rule]</h6>
+                
+                <p>Error count: 4 </p>
+                <p>Warning count: 0 </p>
+                <p>File last modified by : admin</p>
+                <table class="table table-hover table-inverse">
+                    <thead>
+                        <tr>
+                        <th>Line#</th>
+                        <th>Rule Id</th>
+                        <th>Message</th>
+                        <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="x--col-2">Line 1:1</td>
+                            <td class="x--col-2">_SNOW0012</td>
+                            <td class="x--col-3"> function declaration not found</td>
+                            <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span><br>
+                                    <span class="">
+                                        [2]: 	gs.log(&#x27;In ProcessACRResults BR.&#x27;);
+                                    </span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="x--col-2">Line 2:2</td>
+                            <td class="x--col-2">_SNOW0005</td>
+                            <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                            <td class="x--col-5 code">
+                                    <span class="">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span><br>
+                                    <span class="error">
+                                        [2]: 	gs.log(&#x27;In ProcessACRResults BR.&#x27;);
+                                    </span><br>
+                                    <span class="">
+                                        [3]: 	var helper &#x3D; new XMLHelper(current.payload);
+                                    </span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="x--col-2">Line 11:4</td>
+                            <td class="x--col-2">_SNOW0005</td>
+                            <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                            <td class="x--col-5 code">
+                                    <span class="">
+                                        [10]: 			command &#x3D; parameters[param][&#x27;@value&#x27;];
+                                    </span><br>
+                                    <span class="error">
+                                        [11]: 			gs.log(&#x27;name parameter found with value &#x27;+ command);
+                                    </span><br>
+                                    <span class="">
+                                        [12]: 		}
+                                    </span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="x--col-2">Line 91:5</td>
+                            <td class="x--col-2">_SNOW0005</td>
+                            <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                            <td class="x--col-5 code">
+                                    <span class="">
+                                        [90]: 				var argsJson &#x3D; decodeURI(commandTokens[commandTokens.length-1]);
+                                    </span><br>
+                                    <span class="error">
+                                        [91]: 				gs.log(&#x27;decoded JSON is &#x27;+argsJson, &#x27;ACR&#x27;);
+                                    </span><br>
+                                    <span class="">
+                                        [92]: 				var fileArgs &#x3D; JSON.parse(argsJson);
+                                    </span><br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="file--container">
+                <h6>File Name : ScopedGlideEncrypter [Script Include]</h6>
+                
+                <p>Error count: 2 </p>
+                <p>Warning count: 0 </p>
+                <p>File last modified by : hareeshhere</p>
+                <table class="table table-hover table-inverse">
+                    <thead>
+                        <tr>
+                        <th>Line#</th>
+                        <th>Rule Id</th>
+                        <th>Message</th>
+                        <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="x--col-2">Line 1:1</td>
+                            <td class="x--col-2">_SNOW0012</td>
+                            <td class="x--col-3"> function declaration not found</td>
+                            <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var ScopedGlideEncrypter &#x3D; Class.create();
+                                    </span><br>
+                                    <span class="">
+                                        [2]: ScopedGlideEncrypter.prototype &#x3D; {
+                                    </span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="x--col-2">Line 3:25</td>
+                            <td class="x--col-2">_SNOW0014</td>
+                            <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                            <td class="x--col-5 code">
+                                    <span class="">
+                                        [2]: ScopedGlideEncrypter.prototype &#x3D; {
+                                    </span><br>
+                                    <span class="error">
+                                        [3]: 	initialize: function() {
+                                    </span><br>
+                                    <span class="">
+                                        [4]: 	},
+                                    </span><br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="file--container">
+                <h6>File Name : SyncACRFiles [Script Include]</h6>
+                
+                <p>Error count: 2 </p>
+                <p>Warning count: 0 </p>
+                <p>File last modified by : admin</p>
+                <table class="table table-hover table-inverse">
+                    <thead>
+                        <tr>
+                        <th>Line#</th>
+                        <th>Rule Id</th>
+                        <th>Message</th>
+                        <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="x--col-2">Line 1:1</td>
+                            <td class="x--col-2">_SNOW0012</td>
+                            <td class="x--col-3"> function declaration not found</td>
+                            <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var SyncACRFiles &#x3D; Class.create();
+                                    </span><br>
+                                    <span class="">
+                                        [2]: SyncACRFiles.prototype &#x3D; {
+                                    </span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="x--col-2">Line 3:25</td>
+                            <td class="x--col-2">_SNOW0014</td>
+                            <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                            <td class="x--col-5 code">
+                                    <span class="">
+                                        [2]: SyncACRFiles.prototype &#x3D; {
+                                    </span><br>
+                                    <span class="error">
+                                        [3]: 	initialize: function() {
+                                    </span><br>
+                                    <span class="">
+                                        [4]: 	},
+                                    </span><br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="file--container">
+                <h6>File Name : SyncRuleUtil [Script Include]</h6>
+                
+                <p>Error count: 3 </p>
+                <p>Warning count: 0 </p>
+                <p>File last modified by : admin</p>
+                <table class="table table-hover table-inverse">
+                    <thead>
+                        <tr>
+                        <th>Line#</th>
+                        <th>Rule Id</th>
+                        <th>Message</th>
+                        <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="x--col-2">Line 1:2</td>
+                            <td class="x--col-2">_SNOW0012</td>
+                            <td class="x--col-3"> function declaration not found</td>
+                            <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: 	var SyncRuleUtil &#x3D; Class.create();
+                                    </span><br>
+                                    <span class="">
+                                        [2]: SyncRuleUtil.prototype &#x3D; Object.extendsObject(global.AbstractAjaxProcessor, {
+                                    </span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="x--col-2">Line 27:3</td>
+                            <td class="x--col-2">_SNOW0005</td>
+                            <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                            <td class="x--col-5 code">
+                                    <span class="">
+                                        [26]: 		agent.addQuery(&#x27;status&#x27;,&#x27;Up&#x27;);
+                                    </span><br>
+                                    <span class="error">
+                                        [27]: 		gs.info(&#x27;*** configuredMid4CodeReview &#x3D; &#x27; + configuredMid4CodeReview);
+                                    </span><br>
+                                    <span class="">
+                                        [28]: 		agent.addQuery(&#x27;name&#x27;,gs.getProperty(&#x27;x_snc_rcr.ESLintMid&#x27;));
+                                    </span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="x--col-2">Line 31:3</td>
+                            <td class="x--col-2">_SNOW0005</td>
+                            <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                            <td class="x--col-5 code">
+                                    <span class="">
+                                        [30]: 		agent.query();
+                                    </span><br>
+                                    <span class="error">
+                                        [31]: 		gs.info(&#x27;*** configuredMid4CodeReview &#x3D; &#x27;+ agent.getRowCount());
+                                    </span><br>
+                                    <span class="">
+                                        [32]: 		if(agent.next()){
+                                    </span><br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>    
+    </div>
+
+    <div class="row"></div>
+    <hr>
+    <footer class="text-center">
+        <p>©ServiceNow 2017</p>
+    </footer>
+</body>
+</html>

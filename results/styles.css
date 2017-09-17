@@ -1,0 +1,69 @@
+/* Custom CSS */
+body { padding-top: 3.5rem;}
+header { background-color: grey;}
+header h1 {color: white;}
+.sn.navbar-brand {
+    background-image: url(sn-logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 20px !important;
+    margin: 6px 10px !important;
+    width: 280px;
+}
+.file--container { padding: 10px 0 20px; border-bottom: 2px solid grey;}
+.file--container p { font-size: 0.85rem; margin-bottom: 0.2rem; }
+.files--container>p {font-size: 0.9rem; margin-bottom: 0.3rem; }
+.code {     font-family: monospace; font-size: 1rem !important; color: whitesmoke;}
+.code .error { color: #c55f5f; }
+table { font-size: 0.9rem; }
+table.table td, table.table th { padding: .7rem;}
+.file-head {
+    float: left;
+    background-color: #212529;
+    border-radius: 0px 8px 0 0;
+    color: white;
+    padding: 5px 20px;
+}
+/* 
+ http://meyerweb.com/eric/tools/css/reset v2.0 | 20110126 
+
+html, body, div, span, iframe,
+h1, h2, h3, h4, h5, h6, p, pre,
+a, abbr, acronym, address, big, cite, code,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, footer, header, hgroup, 
+menu, nav, section, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+    border-spacing: 0;
+}
