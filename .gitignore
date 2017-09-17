@@ -68,7 +68,7 @@ node_modules
 #visual code
 .vscode/
 
-./config/instance.xml
+config/instance.xml
 
 
 # End of https://www.gitignore.io/api/macos
