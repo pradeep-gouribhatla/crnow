@@ -304,7 +304,7 @@ module.exports = (function() {
                 results: reviewResultsList
             };
 
-            const showInBrowser = true;
+            const showInBrowser = false;
             const fetchDeveloper = true;
 
             if (fetchDeveloper) {
@@ -445,7 +445,7 @@ module.exports = (function() {
                 results: reviewResultsList
             };
 
-            const showInBrowser = true;
+            const showInBrowser = false;
             const fetchDeveloper = true;
 
             if (fetchDeveloper) {
