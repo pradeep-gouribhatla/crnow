@@ -78,6 +78,14 @@ async function main() {
             else await rcrUtil.reviewDeltaFiles(choiceVal);
             break;
 
+        case "files":
+            rcrUtil = require("./scripts/rcr-util");
+            if (!choiceVal) util.showHelpText();
+            else await rcrUtil.reviewFiles(choiceVal);
+            console.log(choiceVal);
+
+            break;
+
         case "saveconfig":
             if (!choiceVal || !choiceVal.instanceName || !choiceVal.userName || !choiceVal.password)
                 util.showHelpText();

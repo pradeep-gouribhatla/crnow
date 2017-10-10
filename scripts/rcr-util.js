@@ -105,7 +105,9 @@ module.exports = (function() {
 
                 let thisFileResults = _results[0];
                 thisFileResults.fileName = scriptFName;
+                thisFileResults.fileSysId = scriptPayload.sys_id;
                 thisFileResults.updatedBy = scriptPayload.sys_updated_by;
+                thisFileResults.class = scriptPayload.sys_class_name;
                 thisFileResults.type = util.getTypeByClass(scriptPayload.sys_class_name);
 
                 const scriptLines = script.split("\n");
@@ -183,7 +185,9 @@ module.exports = (function() {
 
                 let thisFileResults = _results[0];
                 thisFileResults.fileName = scriptFName;
+                thisFileResults.fileSysId = scriptPayload.sys_id;
                 thisFileResults.updatedBy = scriptPayload.sys_updated_by;
+                thisFileResults.class = scriptPayload.sys_class_name;
                 thisFileResults.type = util.getTypeByClass(scriptPayload.sys_class_name);
 
                 const scriptLines = script.split("\n");
@@ -377,6 +381,110 @@ module.exports = (function() {
         reviewFile(script, rules, fileName);
     };
 
+    const reviewFiles = async function(filesObjArr) {
+        if (!Array.isArray(filesObjArr)) return [];
+        // Initialize instance
+        await initialize();
+        let reviewResultsList = [];
+
+        try {
+            //TODO :: change to functional approach
+            //let reviewResults = await Promise.all(filesData.map(async (fileData) => {
+            for (let i = 0; i < filesObjArr.length; i++) {
+                const fileMetaData = filesObjArr[i];
+                if (!fileMetaData.sys_id || !fileMetaData.type) continue;
+
+                const scriptPayload = await nowHelper.fetchSNFile(fileMetaData.type, fileMetaData.sys_id);
+
+                const script = scriptPayload.script;
+                const scriptFName = scriptPayload.sys_name;
+                //get matching rules for record
+                const rules = await ruleHelper.getAllRulesForRecord(scriptPayload);
+                //console.dir(rules);
+
+                /******************************************************
+                ********             REVIEW FILE               ********
+                *******************************************************/
+                let _results = reviewFile(script, rules, scriptFName);
+                /******************************************************/
+
+                //Code smells
+                if (!_results || _results.length <= 0) return [];
+
+                let thisFileResults = _results[0];
+                thisFileResults.fileName = scriptFName;
+                thisFileResults.fileSysId = scriptPayload.sys_id;
+                thisFileResults.updatedBy = scriptPayload.sys_updated_by;
+                thisFileResults.class = scriptPayload.sys_class_name;
+                thisFileResults.type = util.getTypeByClass(scriptPayload.sys_class_name);
+
+                const scriptLines = script.split("\n");
+                const noOfLines = scriptLines.length;
+                thisFileResults.messages.forEach(rl => {
+                    const errlineNo = rl.line - 1;
+                    let stLineNo = errlineNo - 1 <= 0 ? 0 : errlineNo - 1;
+                    let enLineNo = errlineNo + 1 >= noOfLines - 1 ? noOfLines : errlineNo + 2;
+                    rl.source_lines = scriptLines.slice(stLineNo++, enLineNo).map(ln => {
+                        return {
+                            line: stLineNo++,
+                            source: ln,
+                            erClass: stLineNo - 2 == errlineNo ? "error" : ""
+                        };
+                    });
+                });
+
+                //console.log("Code smells count for (" + scriptFName + ") :: " + thisFileResults.errorCount);
+                reviewResultsList.push(thisFileResults);
+            } //}));
+
+            const completeResultsObj = {
+                reportRunAt: new Date(),
+                instanceName: instance.getInstanceName(),
+                instanceURL: instance.getFullURL,
+                userName: instance.getUserName(),
+                results: reviewResultsList
+            };
+
+            const showInBrowser = true;
+            const fetchDeveloper = true;
+
+            if (fetchDeveloper) {
+                await appendFilesSource(reviewResultsList);
+            }
+
+            if (showInBrowser) {
+                // handle reviewResults in a separate template
+                const htmlFilePath = resultsUtil.saveResultsToHTMLFile(completeResultsObj);
+                if (!htmlFilePath) throw new Error("Error generating HTML file");
+                openURLUtil.open("file://" + htmlFilePath);
+            } else {
+                const _results = completeResultsObj.results.map(result => {
+                    const _result = {};
+                    _result.instance = completeResultsObj.instanceName;
+                    _result.file = {
+                        sysid: result.fileSysId,
+                        type: result.class,
+                        name: result.fileName
+                    };
+                    _result.reviews = result.messages.map(function(reviewObj) {
+                        return {
+                            line: reviewObj.line,
+                            ruleid: reviewObj.ruleId,
+                            message: reviewObj.message,
+                            developer: reviewObj.developer,
+                            error_level: reviewObj.severity == 2 ? "error" : "warning" //TODO
+                        };
+                    });
+                    return _result;
+                });
+                console.log(JSON.stringify(_results));
+            }
+        } catch (error) {
+            console.error("Oops!! Something went wrong. Failed to parse files");
+            process.exit(1);
+        }
+    };
+
     const reviewFile = function(script, rules, fileName) {
         if (!script || !Array.isArray(rules)) return;
 
@@ -398,6 +506,7 @@ module.exports = (function() {
         reviewUpdateSet,
         reviewScopedApp,
         reviewDeltaFiles,
+        reviewFiles,
         reviewFileWithPayloadObj,
         reviewFile
     };

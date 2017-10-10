@@ -13,8 +13,8 @@
         <a class="sn navbar-brand" href="#" aria-label="Service Now"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
             aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto"></ul>
@@ -30,12 +30,19 @@
             <h3>RCR CLI REPORT</h2>
                 {{!--
                 <p>Instance : {{instanceName}}</p> --}}
-                <p>Instance : <a href="{{instanceURL}}">{{instanceURL}}</a></p>
+                <p>Instance :
+                    <a href="{{instanceURL}}">{{instanceURL}}</a>
+                </p>
                 <p>Report generated at : {{reportRunAt}} </p>
                 <p>Executed by user : {{userName}}</p>
                 <hr> {{#each results}}
                 <div class="file--container">
-                    <h6>File Name : {{fileName}} [{{type}}]</h6>
+                    <h6>File Name :
+                        <a href="{{../instanceURL}}/{{class}}.do?sys_id={{fileSysId}}" target="_blank">
+                            {{fileName}}
+                        </a>
+                        [{{type}}]
+                    </h6>
                     {{#unless errorCount}}
                     <p>No Errors Found</p>{{/unless}} {{#if errorCount}}
                     <p>Error count: {{errorCount}} </p>
@@ -62,7 +69,8 @@
                                     {{#each source_lines}}
                                     <span class="{{erClass}}">
                                         [{{line}}]: {{source}}
-                                    </span><br> {{/each}}
+                                    </span>
+                                    <br> {{/each}}
                                 </td>
                             </tr>
                             {{/each}}

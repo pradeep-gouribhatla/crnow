@@ -1,6 +1,6 @@
 {
     "name": "sn-rcr",
-    "version": "1.0.2",
+    "version": "1.0.4",
     "description": "ServiceNow Code Review Tool",
     "main": "index.js",
     "bin": {

@@ -55,6 +55,13 @@ module.exports = (function() {
         } else if (rcrArgsObj.duration) {
             choice = "duration";
             choiceVal = ~~rcrArgsObj.duration || 7;
+        } else if (rcrArgsObj.files) {
+            choice = "files";
+            try {
+                choiceVal = JSON.parse(rcrArgsObj.files);
+            } catch (error) {
+                console.log(error);
+            }
         } else if (rcrArgsObj.saveconfig) {
             choice = "saveconfig";
             choiceVal = {
@@ -136,8 +143,6 @@ module.exports = (function() {
         //TODO:: TEST THIS
         const exec = require("child_process").exec;
         exec("npm update sn-rcr", function(error, stdout, stderr) {
-            sys.print("stdout: " + stdout);
-            sys.print("stderr: " + stderr);
             if (error !== null) {
                 console.log("Updating SNOW RCR failed", error);
             }

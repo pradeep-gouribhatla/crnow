@@ -73,7 +73,10 @@ const RCR_CONSTANTS = {
                        >> to save instance details (this will not verify instance data and will not uploadscoped apps)
     --syncrules        >> to sync/update custom and snow rules 
     --update           >> to update rcr setup 
-    --reset            >> to reset rcr configurations 
+    --reset            >> to reset rcr configurations
+    --files '<files array>'      
+                       >> to perform code review on file Ids 
+                       ex: crnow --file '[{“sysid”:”qajdjf”, “type”:”sys_script”}]'
     --updateset <id>   >> to perform code review on update set files 
     --scopedapp <id>   >> to perform code review on scoped app files
     --duration <days>  >> to perform code review script files which are modified in last delta days

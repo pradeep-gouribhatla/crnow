@@ -280,6 +280,7 @@ module.exports = (function() {
         fetchDeltaFiles,
         fetchDeltaFilesByType,
         fetchAndSaveDeltaFiles,
+        fetchSNFile,
         fetchMultipleFileTags,
         fetchFileTags
     };
