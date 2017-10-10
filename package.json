@@ -1,6 +1,6 @@
 {
     "name": "sn-rcr",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "ServiceNow Code Review Tool",
     "main": "index.js",
     "bin": {
@@ -13,10 +13,7 @@
         "type": "git",
         "url": "git+https://github.com/pradeep-gouribhatla/sn-rcr.git"
     },
-    "keywords": [
-        "CodeReview",
-        "SN"
-    ],
+    "keywords": ["CodeReview", "SN"],
     "engines": {
         "node": ">=7.8.0"
     },

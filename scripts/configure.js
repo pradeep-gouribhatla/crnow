@@ -73,7 +73,7 @@ module.exports = (function() {
     const initialInstanceConfig = async function() {
         try {
             //TODO: do we need to delete the existing instance config file?
-            resetInstanceConfiguration();
+            //resetInstanceConfiguration();
             const instanceConfigData = await getInstanceConfiguration();
             await configureInstance(instanceConfigData);
 
