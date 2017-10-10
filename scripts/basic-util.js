@@ -6,7 +6,8 @@
 "use strict";
 const chalk = require("chalk"),
     figlet = require("figlet"),
-    RCR_CONST = require("../config/rcr_constants");
+    RCR = require("../config/rcr_constants"),
+    parseArgs = require("minimist");
 
 module.exports = (function() {
     const _fileTypes = {
@@ -19,10 +20,60 @@ module.exports = (function() {
         sys_ui_page: "UI Page"
     };
 
+    const parseCMDLineOptions = function() {
+        //get arguments
+        let cmdOptionsArr = process.argv.slice(2);
+        let rcrArgsObj = parseArgs(cmdOptionsArr);
+        console.dir(rcrArgsObj);
+
+        let choice, choiceVal;
+        if (rcrArgsObj.configure) {
+            choice = "configure";
+        } else if (rcrArgsObj.defaultInstacne) {
+            choice = "defaultInstance";
+        } else if (rcrArgsObj.syncrules) {
+            choice = "syncrules";
+        } else if (rcrArgsObj.reset) {
+            choice = "reset";
+        } else if (rcrArgsObj.update) {
+            choice = "update";
+        } else if (rcrArgsObj.help) {
+            choice = "help";
+        }
+
+        if (choice) return { choice };
+
+        if (!rcrArgsObj.instance) return {};
+        global.instanceName = rcrArgsObj.instance;
+
+        if (rcrArgsObj.updateset) {
+            choice = "updateset";
+            choiceVal = rcrArgsObj.updateset;
+        } else if (rcrArgsObj.scopedapp) {
+            choice = "scopedapp";
+            choiceVal = rcrArgsObj.scopedapp;
+        } else if (rcrArgsObj.duration) {
+            choice = "duration";
+            choiceVal = ~~rcrArgsObj.duration || 7;
+        } else if (rcrArgsObj.saveconfig) {
+            choice = "saveconfig";
+            choiceVal = {
+                instanceName: rcrArgsObj.instance,
+                userName: rcrArgsObj.user,
+                password: rcrArgsObj.password
+            };
+        }
+
+        return {
+            choice,
+            choiceVal
+        };
+    };
+
     const getRCRCmdOptions = function() {
-        // option and value
-        let option = null,
-            optionVal = null;
+        // choice and value
+        let choice = null,
+            choiceVal = null;
 
         //get arguments
         let cmdOptionsArr = process.argv.slice(2);
@@ -31,20 +82,20 @@ module.exports = (function() {
         if (cmdOption) {
             cmdOption = cmdOption.split("-").join("");
             if (cmdOption.indexOf("=") > 0) {
-                option = "-" + cmdOption.split("=")[0];
-                optionVal = cmdOption
+                choice = "-" + cmdOption.split("=")[0];
+                choiceVal = cmdOption
                     .split("=")
                     .slice(1)
                     .join("");
             } else {
-                option = "-" + cmdOption;
-                optionVal = cmdOptionsArr[1];
+                choice = "-" + cmdOption;
+                choiceVal = cmdOptionsArr[1];
             }
         }
 
         return {
-            option,
-            optionVal
+            choice,
+            choiceVal
         };
     };
 
@@ -66,7 +117,7 @@ module.exports = (function() {
 
     const showHelpText = function() {
         console.log(chalk.gray("CRNOW usage instructions below:"));
-        console.log(chalk.gray(RCR_CONST.USAGE_INS));
+        console.log(chalk.gray(RCR.USAGE_INS));
     };
 
     const showRCRLogo = function() {
@@ -99,6 +150,7 @@ module.exports = (function() {
         showErrMessage,
         showHelpText,
         showRCRLogo,
+        parseCMDLineOptions,
         getRCRCmdOptions,
         getTypeByClass,
         getClassByType,

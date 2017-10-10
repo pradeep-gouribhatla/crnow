@@ -25,7 +25,10 @@ const RCR_CONSTANTS = {
     snow_rules_repo: "https://github.com/pradeep-gouribhatla/snow-rules",
 
     //scoped app configurtion
-    rcr_scoped_git_repo: "https://github.com/pradeep-gouribhatla/sn_rcr_v1",
+    scoped_app_name: "x_snc_sn_rcr_v1",
+    scoped_app_search_query: "/api/now/table/sys_app?sysparm_query=scope%3Dx_snc_sn_rcr_v1&sysparm_limit=1",
+    //rcr_scoped_git_repo: "https://github.com/pradeep-gouribhatla/sn_rcr_v1",
+    rcr_scoped_git_repo: "https://github.com/SN-ITLabs/RcR-CLI",
     scoped_app_api_url: "/api/sn_devstudio/v1/vcs/apps",
     scoped_app_status_uri: "/api/sn_devstudio/v1/vcs/transactions/",
 
@@ -48,22 +51,33 @@ const RCR_CONSTANTS = {
     scoped_app_api_field_params: "sys_name,sys_id,sys_update_name,sys_class_name",
 
     //all instance files (when delta is provided)
-    delta_files_api: "/api/now/v1/table/??",
-    delta_files_api_query: "type=",
+    //delta_files_api: "/api/now/v1/table/??",
+    delta_files_api_query: "sysparm_query=sys_updated_on%3Ejavascript%3Ags.daysAgoStart(__deltadays__)",
     delta_files_api_field_params: "name,type,target_name,payload",
+
+    //tags for file
+    file_tags_api: "/api/x_snc_sn_rcr_v1/gettags/process",
 
     //results
     default_results_template: "/templates/results.hbs",
     default_results_file: "/results/findings.html",
+
+    //max delta days
+    max_delta_days: 30,
+
     //CLI usage info
     USAGE_INS: `
-    -configure        >> to configure initial setup 
-    -syncrules        >> to sync/update custom and snow rules 
-    -update           >> to update rcr setup 
-    -reset            >> to reset rcr configurations 
-    -updateset <id>   >> to perform code review on update set files 
-    -scopedapp <id>   >> to perform code review on scoped app files
-    -help             >> to show all the options `
+    --configure        >> to configure initial setup 
+                       (this also credentials and uploads RCR scoped app if not available) 
+    --saveconfig --instance <name> --user <userID> --password <password>
+                       >> to save instance details (this will not verify instance data and will not uploadscoped apps)
+    --syncrules        >> to sync/update custom and snow rules 
+    --update           >> to update rcr setup 
+    --reset            >> to reset rcr configurations 
+    --updateset <id>   >> to perform code review on update set files 
+    --scopedapp <id>   >> to perform code review on scoped app files
+    --duration <days>  >> to perform code review script files which are modified in last delta days
+    --help             >> to show all the options `
 };
 
 module.exports = RCR_CONSTANTS;

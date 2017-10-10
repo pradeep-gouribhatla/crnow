@@ -6,12 +6,13 @@
 "use strict";
 
 const fs = require("fs"),
+    path = require("path"),
     axios = require("axios"),
     xml2js = require("xml2js"),
     parseString = require("xml2js").parseString,
     progressBar = require("progress"),
     util = require("./basic-util"),
-    RCR_CONST = require("../config/rcr_constants");
+    RCR = require("../config/rcr_constants");
 
 module.exports = (function() {
     //current service now instance config
@@ -47,8 +48,13 @@ module.exports = (function() {
             parseString(data, (err, jsonObj) => {
                 if (err) throw new Error("Reading config file failed. Try re-configuring rcr");
 
-                const configObject = jsonObj.root || false;
-                if (!configObject) throw new Error("Reading config file failed. Try re-configuring rcr");
+                const configObjArray = jsonObj.root ? jsonObj.root["ins-node"] : [];
+                if (!configObjArray || !Array.isArray(configObjArray))
+                    throw new Error("Reading config file failed. Try re-configuring rcr");
+
+                const configObject = configObjArray.find(configObj => configObj.instanceName[0] == global.instanceName);
+
+                if (!configObject) throw new Error("Instance not configured.");
 
                 _iConfigObject = {
                     instanceName: configObject.instanceName[0],
@@ -63,8 +69,7 @@ module.exports = (function() {
                 console.log("DEBUG : Retrieved instance config");
             });
         } catch (error) {
-            console.error("Reading config file failed. Try re-configuring rcr");
-            //console.log(error);
+            console.log(error);
         }
     };
 
@@ -88,12 +93,21 @@ module.exports = (function() {
         _instanceHttpClient = axios.create({
             baseURL: getFullURL()
         });
-        _instanceHttpClient.defaults.timeout = RCR_CONST.http_client_timeout;
+        _instanceHttpClient.defaults.timeout = RCR.http_client_timeout;
         _instanceHttpClient.defaults.headers.common["Authorization"] = getAuthHeader();
         _instanceHttpClient.defaults.headers.post["Content-Type"] = "application/json";
         _instanceHttpClient.defaults.headers.put["Content-Type"] = "application/json";
 
         return _instanceHttpClient;
+    };
+
+    const saveInstanceData = async function(instanceName, userName, password) {
+        const configObject = {
+            instanceName,
+            userName,
+            password
+        };
+        saveToConfig(configObject);
     };
 
     /*
@@ -143,10 +157,10 @@ module.exports = (function() {
         try {
             //REVISIT
             const _httpReq = axios.create({ baseURL: getFullURL() });
-            _httpReq.defaults.timeout = RCR_CONST.http_client_timeout;
+            _httpReq.defaults.timeout = RCR.http_client_timeout;
             _httpReq.defaults.headers.common["Authorization"] = getAuthHeader();
-            const res = await _httpReq.get(RCR_CONST.snow_update_set_check_url);
-            console.debug(res); //TODO: removing log did not work
+            const res = await _httpReq.get(RCR.snow_update_set_check_url);
+            //console.log(res); //TODO: removing log did not work
             if (res && res.status == 200) {
                 _isValidInstance = true;
                 console.log("RCR Setup : Instance and user data verified");
@@ -168,6 +182,23 @@ module.exports = (function() {
     };
 
     /*
+    const saveToConfig = function(configObject) {
+        if (!configObject) return;
+        try {
+            const xml_builder = new xml2js.Builder();
+            const ins_config_xml = xml_builder.buildObject({ "ins-node": configObject });
+
+            fs.writeFileSync(__dirname + "/.." + "/config/instance.xml", ins_config_xml);
+            console.log("RCR Setup : Instance config saved to xml file");
+
+            return (_isInstanceConfigured = true);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+    */
+
+    /*
         Create a xml file with instance URL and user credentials
         TODO:: Should we save encrypted password or atleast basic auth header.
         @arg : instanceConfig (instanceName, userName, password)
@@ -175,11 +206,34 @@ module.exports = (function() {
     */
     const saveToConfig = function(configObject) {
         if (!configObject) return;
+
         try {
             const xml_builder = new xml2js.Builder();
-            const ins_config_xml = xml_builder.buildObject(configObject);
+            const configFile = __dirname + "/../config/instance.xml";
 
-            fs.writeFileSync(__dirname + "/.." + "/config/instance.xml", ins_config_xml);
+            const fileExists = fs.existsSync(configFile);
+            if (!fileExists) {
+                fs.writeFileSync(configFile, xml_builder.buildObject({ root: { "ins-node": [] } }));
+            }
+
+            try {
+                var data = fs.readFileSync(configFile, "utf-8");
+                parseString(data, (err, jsonObj) => {
+                    if (err) throw new Error("Reading config file failed. Try re-configuring rcr");
+
+                    const allData = jsonObj.root ? jsonObj.root : { "ins-node": [] };
+                    const configObjArray = allData["ins-node"];
+                    const insNodeObj = Object.assign(configObject, { $: { name: configObject.instanceName } });
+                    configObjArray.push(insNodeObj);
+                    const ins_config_xml = xml_builder.buildObject({ root: allData });
+
+                    fs.writeFileSync(configFile, ins_config_xml);
+                });
+            } catch (error) {
+                console.log(error);
+                process.exit(1);
+            }
+
             console.log("RCR Setup : Instance config saved to xml file");
 
             return (_isInstanceConfigured = true);
@@ -226,10 +280,12 @@ module.exports = (function() {
     const getFullURL = function() {
         if (!_iConfigObject || !_iConfigObject.instanceName) return;
 
-        if (_iConfigObject.instanceName == "127.0.0.1:8080" || _iConfigObject.instanceName == "localhost") {
+        if (_iConfigObject.instanceName == "localhost") {
             return "http://127.0.0.1:8080";
+        } else if (_iConfigObject.instanceName.indexOf("127.0.0.1") >= 0) {
+            return "http://" + _iConfigObject.instanceName;
         } else {
-            return "https://" + _iConfigObject.instanceName + RCR_CONST.DOMAIN;
+            return "https://" + _iConfigObject.instanceName + RCR.DOMAIN;
         }
     };
 
@@ -268,7 +324,7 @@ module.exports = (function() {
             if (!getThisInstanceHttp() || !gitURL) return;
             const res = await _instanceHttpClient.request({
                 method: "POST",
-                url: getFullURL() + RCR_CONST.scoped_app_api_url,
+                url: getFullURL() + RCR.scoped_app_api_url,
                 data: JSON.stringify({
                     url: gitURL,
                     setTestConnection: false
@@ -316,7 +372,7 @@ module.exports = (function() {
 
         const res = await _instanceHttpClient.request({
             method: "GET",
-            url: getFullURL() + RCR_CONST.scoped_app_status_uri + progressId
+            url: getFullURL() + RCR.scoped_app_status_uri + progressId
         });
 
         if (res && res.status == 200) {
@@ -366,19 +422,47 @@ module.exports = (function() {
     */
     const configureRCRprerequisites = async function() {
         //  Uploading scoped app (RCR client)
-        await uploadRCRClientApp(RCR_CONST.rcr_scoped_git_repo);
+        await uploadRCRClientApp(RCR.rcr_scoped_git_repo);
 
         //  Update SysUpdateVersion table read access
         await configureSysUpdateVersionAccess();
     };
 
+    const instanceHasRCRScopedApp = async function() {
+        if (!getThisInstanceHttp()) return;
+        const res = await _instanceHttpClient.request({
+            method: "GET",
+            url: RCR.scoped_app_search_query
+        });
+
+        if (res && res.status == 200) {
+            if (!res.data || !res.data.result)
+                throw new Error("Oops! No data returned while verifying scoped app. Retry Configuring");
+
+            const responseObj = res.data.result[0];
+            //console.dir(responseObj);
+
+            if (responseObj && responseObj.scope == RCR.scoped_app_name) {
+                console.log("RCR Setup : Scoped App already avaialable");
+                return true;
+            }
+        } else {
+            throw new Error("Oops!! No data returned while verifying scoped app. Retry Configuring");
+        }
+        console.log("RCR Setup : Scoped App not avaialable on instance");
+        return false;
+    };
     /*
         Upload RCR ClientApp to instance
         @arg : NA
         @return : Auth header
     */
     const uploadRCRClientApp = async function() {
-        await uploadScopedApp(RCR_CONST.rcr_scoped_git_repo);
+        // Check if the instance already has RCR client scoped app
+        const instanceHasScopedApp = await instanceHasRCRScopedApp();
+
+        if (!instanceHasScopedApp) await uploadScopedApp(RCR.rcr_scoped_git_repo);
+
         return this;
     };
 
@@ -413,7 +497,7 @@ module.exports = (function() {
 
             let res = await _instanceHttpClient.request({
                 method: "GET",
-                url: RCR_CONST.sys_db_obj_search_query
+                url: RCR.sys_db_obj_search_query
             });
 
             if (res && res.status == 200) {
@@ -431,7 +515,7 @@ module.exports = (function() {
                     };
                 }
             } else {
-                console.debug(JSON.stringify(res));
+                //console.log(JSON.stringify(res));
                 throw new Error("Oops! No data returned while call to sys_update_version. Retry Configuring");
             }
         } catch (ex) {
@@ -458,7 +542,7 @@ module.exports = (function() {
             if (!getThisInstanceHttp()) return;
 
             let res = await _instanceHttpClient.request({
-                url: getFullURL() + RCR_CONST.sys_db_obj_url + table_sys_id,
+                url: getFullURL() + RCR.sys_db_obj_url + table_sys_id,
                 method: "PUT",
                 data: '{"read_access":"true"}'
             });
@@ -468,7 +552,6 @@ module.exports = (function() {
 
                 const read_access = res.data.result && res.data.result[0][read_access];
                 if (read_access == "true" || read_access == true) {
-                    console.debug(JSON.stringify(res.data));
                     console.log("RCR setup : Sys update version access granted");
                 } else {
                     console.log("Hmm.. This should not happen!! sys_update_version set access failed. Debug Now.");
@@ -477,7 +560,7 @@ module.exports = (function() {
 
                 return read_access == "true" || read_access == true;
             } else {
-                console.debug(JSON.stringify(res));
+                //console.log(JSON.stringify(res));
                 throw new Error("Oops! No data returned while sys_update_version set access call. Retry Configuring");
             }
         } catch (ex) {
@@ -499,6 +582,7 @@ module.exports = (function() {
         getInstanceName,
         getThisInstanceHttp,
         configure,
+        saveToConfig,
         uploadScopedApp,
         getResource,
         putResource,

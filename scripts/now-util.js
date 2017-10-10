@@ -12,7 +12,7 @@ const fs = require("fs"),
 
 module.exports = (function() {
     //Initialze/fetch instnace data. If instance not configured. Throw an error.
-    const initialize = function() {
+    const initialize = async function() {
         if (instance.isConfigured()) return;
         try {
             (async function() {
@@ -25,7 +25,7 @@ module.exports = (function() {
 
     const fetchUpdateSetFiles = async function(updateSetId) {
         // Initialize instance
-        initialize();
+        await initialize();
 
         if (!updateSetId || !instance.isConfigured()) return;
         //update_set=<sys_id>^type=Client Script^ORtype=Script Include
@@ -114,7 +114,7 @@ module.exports = (function() {
 
     const fetchScopedAppFiles = async function(scopedAppId) {
         // Initialize instance
-        initialize();
+        await initialize();
 
         /*
             1. Fetch meta data from sys_meta_data
@@ -176,9 +176,48 @@ module.exports = (function() {
 
     const fetchDeltaFiles = async function(deltaDays) {
         // Initialize instance
-        initialize();
+        await initialize();
+        let instanceDeltaFiles = [];
 
-        //TODO
+        //let instanceDeltaFiles = await Promise.all(RCR.supported_classes.map(async (scriptClass) => {
+        for (let cl = 0; cl < RCR.supported_classes.length; cl++) {
+            let thisClassFiles = [];
+            const scriptClass = RCR.supported_classes[cl];
+            try {
+                thisClassFiles = await fetchDeltaFilesByType(scriptClass, deltaDays);
+            } catch (error) {
+                console.error("Error fetching the delta days filed for type : " + scriptClass);
+            }
+
+            instanceDeltaFiles.push(...thisClassFiles);
+        }
+        //}));
+
+        return instanceDeltaFiles;
+    };
+
+    const fetchDeltaFilesByType = async function(scriptClass, deltaDays) {
+        //initialize();
+        if (!scriptClass || !deltaDays || !instance.isConfigured()) return;
+        let thisClassFiles = [];
+
+        const insHttp = instance.getThisInstanceHttp();
+        const sysparmQuery = RCR.delta_files_api_query.replace("__deltadays__", deltaDays);
+        try {
+            const res = await insHttp.get(RCR.table_api_url + scriptClass + "?" + sysparmQuery);
+            if (res && res.status == 200) {
+                if (!res.data || !Array.isArray(res.data.result) || res.data.result.length <= 0)
+                    console.log("DEBUG : No files found for type : " + scriptClass);
+                else thisClassFiles = res.data.result;
+            }
+        } catch (error) {
+            if (error.response.status == 404) {
+                console.log("DEBUG : No files found for type : " + scriptClass);
+                return thisClassFiles;
+            }
+        }
+
+        return thisClassFiles;
     };
 
     const fetchAndSaveDeltaFiles = async function(deltaDays) {
@@ -189,12 +228,59 @@ module.exports = (function() {
         // save files into respective folders
     };
 
+    const fetchMultipleFileTags = async function(filesList) {
+        if (!Array.isArray(filesList)) return;
+
+        const insHttp = instance.getThisInstanceHttp();
+        const res = await insHttp.request({
+            method: "POST",
+            url: instance.getFullURL() + RCR.file_tags_api,
+            data: JSON.stringify(filesList)
+        });
+
+        //console.dir(res);
+
+        if (res && res.status == 200) {
+            if (!res.data || !res.data.result) {
+                console.log("Oops! No data found in the script file.");
+                return;
+            }
+            return res.data.result;
+        } else {
+            throw new Error("Oops!! Failed to fetch tags -> " + fileType + ":" + fileSysID);
+        }
+    };
+
+    const fetchFileTags = async function(fileType, fileSysID) {
+        if (!fileClass || !fileSysID) return;
+
+        const insHttp = instance.getThisInstanceHttp();
+        const res = await insHttp.request({
+            method: "POST",
+            url: getFullURL() + RCR.file_tags_api,
+            data: JSON.stringify([{ fileSysId, fileType }])
+        });
+
+        if (res && res.status == 200) {
+            if (!res.data || !res.data.result) {
+                console.log("Oops! No data found in the script file.");
+                return;
+            }
+            return res.data.result;
+        } else {
+            throw new Error("Oops!! Failed to fetch tags -> " + fileType + ":" + fileSysID);
+        }
+    };
+
     return {
         fetchUpdateSetFiles,
         fetchAndSaveUpdateSetFiles,
         fetchScopedAppFiles,
         fetchAndSaveScopedAppFiles,
         fetchDeltaFiles,
-        fetchAndSaveDeltaFiles
+        fetchDeltaFilesByType,
+        fetchAndSaveDeltaFiles,
+        fetchMultipleFileTags,
+        fetchFileTags
     };
 })();

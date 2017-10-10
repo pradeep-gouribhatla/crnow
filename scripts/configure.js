@@ -44,6 +44,9 @@ module.exports = (function() {
         }
     ];
 
+    /**
+     * @returns instance configuration
+     */
     const getInstanceConfiguration = async function() {
         //prompt user for instance info
         // inquirer.prompt(questions).then(callback);
@@ -83,6 +86,20 @@ module.exports = (function() {
         }
     };
 
+    const saveInstanceData = function(instanceName, userName, password) {
+        const resp = (async function() {
+            const configObject = {
+                instanceName,
+                userName,
+                password
+            };
+            return await instance.saveToConfig(configObject);
+        })();
+
+        if (resp) util.showInfoLevelMessage("Instance Data saved succesfully");
+        else util.showErrMessage("Saving Instance Data failed");
+    };
+
     const syncAllRules = async function() {
         try {
             const snow_rules_dir = __dirname + "/.." + RCR.snow_rules_dir;
@@ -106,7 +123,7 @@ module.exports = (function() {
             // .listRemote(['--get-url'])
             // .then((err, data) => {
             //     if (!err) {
-            //         console.debug('Remote url for repository at ' + __dirname + ' : ' + data);
+            //         console.log('Remote url for repository at ' + __dirname + ' : ' + data);
             //         // if (data == RCR.snow_rules_repo){
             //         //     rulesGitRepo
             //         //     .then(() => console.log('RULES: Starting pull...'))
@@ -141,6 +158,10 @@ module.exports = (function() {
         //TODO:
     };
 
+    const setInstanceAsDefault = function(instanceName) {
+        //TODO::
+    };
+
     const resetInstanceConfiguration = function() {
         //REVISIT:
         const insConfigFile = __dirname + "/../" + RCR.instance_config_file;
@@ -161,7 +182,9 @@ module.exports = (function() {
     };
 
     return {
+        saveInstanceData,
         initialInstanceConfig,
+        setInstanceAsDefault,
         syncAllRules,
         updateSetup,
         resetInstanceConfiguration

@@ -5,15 +5,14 @@
 
 "use strict";
 
-const instance = require('/instance.js');
+const instance = require("/instance.js");
 
 module.exports = (function() {
-    
-    const syncAllRules = function(){
+    const syncAllRules = function() {
         //TODO:
     };
 
-    const resetRules = function(){
+    const resetRules = function() {
         //TODO:
         // remove customized rules and resync.
     };
@@ -22,5 +21,4 @@ module.exports = (function() {
         syncAllRules,
         resetRules
     };
-
 })();

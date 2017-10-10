@@ -36,45 +36,55 @@ const config = require("./scripts/configure"),
 async function main() {
     // Get the command(or option)
     let rcrUtil;
-    const { option, optionVal } = util.getRCRCmdOptions();
+    const { choice, choiceVal } = util.parseCMDLineOptions();
 
     //Run respective module based on option
-    switch (option) {
-        case "-configure":
+    switch (choice) {
+        case "configure":
             await config.initialInstanceConfig();
             break;
 
-        case "-syncrules":
+        case "defaultInstance":
+            await config.setInstanceAsDefault();
+            break;
+
+        case "syncrules":
             await config.syncAllRules();
             break;
 
-        case "-reset":
+        case "reset":
             await config.resetInstanceConfiguration();
             break;
 
-        case "-update":
+        case "update":
             util.updateRCR();
             break;
 
-        case "-updateset":
+        case "updateset":
             rcrUtil = require("./scripts/rcr-util");
-            if (!optionVal) util.showHelpText();
-            await rcrUtil.reviewUpdateSet(optionVal);
+            if (!choiceVal) util.showHelpText();
+            await rcrUtil.reviewUpdateSet(choiceVal);
             break;
 
-        case "-scopedapp":
+        case "scopedapp":
             rcrUtil = require("./scripts/rcr-util");
-            if (!optionVal) util.showHelpText();
-            await rcrUtil.reviewScopedApp(optionVal);
+            if (!choiceVal) util.showHelpText();
+            else await rcrUtil.reviewScopedApp(choiceVal);
             break;
 
-        case "-deltarun":
+        case "duration":
             rcrUtil = require("./scripts/rcr-util");
-            if (!optionVal) util.showHelpText();
-            await rcrUtil.reviewDeltaFiles(optionVal);
+            if (!choiceVal) util.showHelpText();
+            else await rcrUtil.reviewDeltaFiles(choiceVal);
             break;
 
-        case "-help":
+        case "saveconfig":
+            if (!choiceVal || !choiceVal.instanceName || !choiceVal.userName || !choiceVal.password)
+                util.showHelpText();
+            else await config.saveInstanceData(choiceVal.instanceName, choiceVal.userName, choiceVal.password);
+            break;
+
+        case "help":
             util.showHelpText();
             break;
 
