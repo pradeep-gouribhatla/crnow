@@ -335,6 +335,12 @@ module.exports = (function() {
                 console.log(JSON.stringify(_results));
             } else {
                 //Show in browser
+                completeResultsObj.results.forEach(result => {
+                    result.messages = result.messages.filter(reviewObj => {
+                        return global.showAllFindings ? true : reviewObj.developer != "UNKNOWN";
+                    });
+                });
+
                 const htmlFilePath = resultsUtil.saveResultsToHTMLFile(completeResultsObj);
                 if (!htmlFilePath) throw new Error("Error generating HTML file");
                 openURLUtil.open("file://" + htmlFilePath);
@@ -365,9 +371,9 @@ module.exports = (function() {
                 const thisTagObj = devTags[fileId];
                 // ex - {"shyam":[15,16,17,4,7,10],"chaitanya":[8,9,13,14],"anil.akula":[5,6],"admin.readonly":[3,11], "UNKNOWN": [2,1,23,22]}
                 Object.entries(thisTagObj).forEach(entry => {
-                    if (entry[1].indexOf(rl.line) >= 0 && entry[0] != "UNKNOWN") rl.developer = entry[0];
+                    if (entry[1].indexOf(rl.line) >= 0) rl.developer = entry[0];
                 });
-                //if (!rl.developer) rl.developer = "UNKNOWN";
+                if (!rl.developer) rl.developer = "UNKNOWN";
             });
         });
     };
@@ -460,6 +466,8 @@ module.exports = (function() {
                     };
                     _result.reviews = result.messages
                         .filter(reviewObj => {
+                            console.log("RESULT : (" + reviewObj.developer + ")", reviewObj.developer !== "UNKNOWN");
+
                             return global.showAllFindings ? true : reviewObj.developer != "UNKNOWN";
                         })
                         .map(reviewObj => {
