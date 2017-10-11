@@ -125,7 +125,8 @@ module.exports = (function() {
                     });
                 });
 
-                console.log("Code smells count for (" + scriptFName + ") :: " + thisFileResults.errorCount);
+                if (global.debug)
+                    console.log("Code smells count for (" + scriptFName + ") :: " + thisFileResults.errorCount);
                 reviewResultsList.push(thisFileResults);
             } //}));
 
@@ -304,20 +305,11 @@ module.exports = (function() {
                 results: reviewResultsList
             };
 
-            const showInBrowser = false;
-            const fetchDeveloper = true;
+            await appendFilesSource(reviewResultsList);
 
-            if (fetchDeveloper) {
-                await appendFilesSource(reviewResultsList);
-            }
-
-            if (showInBrowser) {
-                // handle reviewResults in a separate template
-                const htmlFilePath = resultsUtil.saveResultsToHTMLFile(completeResultsObj);
-                if (!htmlFilePath) throw new Error("Error generating HTML file");
-                openURLUtil.open("file://" + htmlFilePath);
-            } else {
-                const _results = completeResultsObj.results.map(result => {
+            if (global.json) {
+                const _results = [];
+                completeResultsObj.results.forEach(result => {
                     const _result = {};
                     _result.instance = completeResultsObj.instanceName;
                     _result.file = {
@@ -325,18 +317,27 @@ module.exports = (function() {
                         type: result.class,
                         name: result.fileName
                     };
-                    _result.reviews = result.messages.map(function(reviewObj) {
-                        return {
-                            line: reviewObj.line,
-                            ruleid: reviewObj.ruleId,
-                            message: reviewObj.message,
-                            developer: reviewObj.developer,
-                            error_level: reviewObj.severity == 2 ? "error" : "warning" //TODO
-                        };
-                    });
-                    return _result;
+                    _result.reviews = result.messages
+                        .filter(reviewObj => {
+                            return global.showAllFindings ? true : reviewObj.developer != "UNKNOWN";
+                        })
+                        .map(reviewObj => {
+                            return {
+                                line: reviewObj.line,
+                                ruleid: reviewObj.ruleId,
+                                message: reviewObj.message,
+                                developer: reviewObj.developer,
+                                error_level: reviewObj.severity == 2 ? "error" : "warning" //TODO
+                            };
+                        });
+                    _results.push(_result);
                 });
                 console.log(JSON.stringify(_results));
+            } else {
+                //Show in browser
+                const htmlFilePath = resultsUtil.saveResultsToHTMLFile(completeResultsObj);
+                if (!htmlFilePath) throw new Error("Error generating HTML file");
+                openURLUtil.open("file://" + htmlFilePath);
             }
         } catch (error) {
             console.error("Oops!! Something went wrong. Failed to parse files");
@@ -364,9 +365,9 @@ module.exports = (function() {
                 const thisTagObj = devTags[fileId];
                 // ex - {"shyam":[15,16,17,4,7,10],"chaitanya":[8,9,13,14],"anil.akula":[5,6],"admin.readonly":[3,11], "UNKNOWN": [2,1,23,22]}
                 Object.entries(thisTagObj).forEach(entry => {
-                    if (entry[1].indexOf(rl.line) >= 0) rl.developer = entry[0] || "UNKNOWN";
+                    if (entry[1].indexOf(rl.line) >= 0 && entry[0] != "UNKNOWN") rl.developer = entry[0];
                 });
-                if (!rl.developer) rl.developer = "UNKNOWN";
+                //if (!rl.developer) rl.developer = "UNKNOWN";
             });
         });
     };
@@ -445,20 +446,11 @@ module.exports = (function() {
                 results: reviewResultsList
             };
 
-            const showInBrowser = false;
-            const fetchDeveloper = true;
+            await appendFilesSource(reviewResultsList);
 
-            if (fetchDeveloper) {
-                await appendFilesSource(reviewResultsList);
-            }
-
-            if (showInBrowser) {
-                // handle reviewResults in a separate template
-                const htmlFilePath = resultsUtil.saveResultsToHTMLFile(completeResultsObj);
-                if (!htmlFilePath) throw new Error("Error generating HTML file");
-                openURLUtil.open("file://" + htmlFilePath);
-            } else {
-                const _results = completeResultsObj.results.map(result => {
+            if (global.json) {
+                const _results = [];
+                completeResultsObj.results.forEach(result => {
                     const _result = {};
                     _result.instance = completeResultsObj.instanceName;
                     _result.file = {
@@ -466,18 +458,27 @@ module.exports = (function() {
                         type: result.class,
                         name: result.fileName
                     };
-                    _result.reviews = result.messages.map(function(reviewObj) {
-                        return {
-                            line: reviewObj.line,
-                            ruleid: reviewObj.ruleId,
-                            message: reviewObj.message,
-                            developer: reviewObj.developer,
-                            error_level: reviewObj.severity == 2 ? "error" : "warning" //TODO
-                        };
-                    });
-                    return _result;
+                    _result.reviews = result.messages
+                        .filter(reviewObj => {
+                            return global.showAllFindings ? true : reviewObj.developer != "UNKNOWN";
+                        })
+                        .map(reviewObj => {
+                            return {
+                                line: reviewObj.line,
+                                ruleid: reviewObj.ruleId,
+                                message: reviewObj.message,
+                                developer: reviewObj.developer,
+                                error_level: reviewObj.severity == 2 ? "error" : "warning" //TODO
+                            };
+                        });
+                    _results.push(_result);
                 });
                 console.log(JSON.stringify(_results));
+            } else {
+                //Show in browser
+                const htmlFilePath = resultsUtil.saveResultsToHTMLFile(completeResultsObj);
+                if (!htmlFilePath) throw new Error("Error generating HTML file");
+                openURLUtil.open("file://" + htmlFilePath);
             }
         } catch (error) {
             console.error("Oops!! Something went wrong. Failed to parse files");

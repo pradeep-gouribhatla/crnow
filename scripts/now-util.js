@@ -85,7 +85,7 @@ module.exports = (function() {
                             console.log(err);
                             return;
                         }
-                        console.log(scriptFName + " File saved succesfully");
+                        if (global.debug) console.log(scriptFName + " File saved succesfully");
                     });
                 });
             });
@@ -206,13 +206,15 @@ module.exports = (function() {
         try {
             const res = await insHttp.get(RCR.table_api_url + scriptClass + "?" + sysparmQuery);
             if (res && res.status == 200) {
-                if (!res.data || !Array.isArray(res.data.result) || res.data.result.length <= 0)
-                    console.log("DEBUG : No files found for type : " + scriptClass);
-                else thisClassFiles = res.data.result;
+                if (!res.data || !Array.isArray(res.data.result) || res.data.result.length <= 0) {
+                    if (global.debug) console.log("DEBUG : No files found for type : " + scriptClass);
+                } else {
+                    thisClassFiles = res.data.result;
+                }
             }
         } catch (error) {
             if (error.response.status == 404) {
-                console.log("DEBUG : No files found for type : " + scriptClass);
+                if (global.debug) console.log("DEBUG : No files found for type : " + scriptClass);
                 return thisClassFiles;
             }
         }
@@ -263,7 +265,7 @@ module.exports = (function() {
 
         if (res && res.status == 200) {
             if (!res.data || !res.data.result) {
-                console.log("Oops! No data found in the script file.");
+                console.log("Oops! No data when fetching tags");
                 return;
             }
             return res.data.result;

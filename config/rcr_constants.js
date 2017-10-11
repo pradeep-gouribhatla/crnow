@@ -10,11 +10,11 @@ const RCR_CONSTANTS = {
     supported_classes: [
         "sys_script_include",
         "sys_script_client",
-        "sys_script",
-        "catalog_script_client",
-        "sysevent_script_action",
-        "sys_ui_script",
-        "sys_ui_page"
+        "sys_script"
+        //"catalog_script_client",
+        //"sysevent_script_action",
+        //"sys_ui_script",
+        //"sys_ui_page"
     ],
 
     //folders & config files

@@ -66,7 +66,7 @@ module.exports = (function() {
 
                 setThisInstanceHttp();
 
-                console.log("DEBUG : Retrieved instance config");
+                if (global.debug) console.log("DEBUG : Retrieved instance config");
             });
         } catch (error) {
             console.log(error);

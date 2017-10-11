@@ -24,7 +24,9 @@ module.exports = (function() {
         //get arguments
         let cmdOptionsArr = process.argv.slice(2);
         let rcrArgsObj = parseArgs(cmdOptionsArr);
-        console.dir(rcrArgsObj);
+
+        global.debug = rcrArgsObj.debug;
+        if (global.debug) console.dir(rcrArgsObj);
 
         let choice, choiceVal;
         if (rcrArgsObj.configure) {
@@ -45,6 +47,8 @@ module.exports = (function() {
 
         if (!rcrArgsObj.instance) return {};
         global.instanceName = rcrArgsObj.instance;
+        global.json = rcrArgsObj.json;
+        global.showAllFindings = rcrArgsObj.all;
 
         if (rcrArgsObj.updateset) {
             choice = "updateset";

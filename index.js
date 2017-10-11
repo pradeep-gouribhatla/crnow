@@ -38,6 +38,8 @@ async function main() {
     let rcrUtil;
     const { choice, choiceVal } = util.parseCMDLineOptions();
 
+    if (!global.json) util.showRCRLogo();
+
     //Run respective module based on option
     switch (choice) {
         case "configure":
@@ -110,7 +112,6 @@ async function main() {
 
 (async function() {
     try {
-        util.showRCRLogo();
         await main();
     } catch (error) {
         console.error(error);

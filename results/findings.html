@@ -26,20 +26,20 @@
                 <p>Instance :
                     <a href="https://surfdev3.service-now.com">https://surfdev3.service-now.com</a>
                 </p>
-                <p>Report generated at : Tue Oct 10 2017 19:52:19 GMT+0530 (IST) </p>
+                <p>Report generated at : Wed Oct 11 2017 16:50:16 GMT+0530 (IST) </p>
                 <p>Executed by user : pradeep.gouribhatla</p>
                 <hr> 
                 <div class="file--container">
                     <h6>File Name :
-                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=ecc4cbd66f2bf100e7e8ccac5d3ee421" target="_blank">
-                            SabaLMSCacheUtil
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=0140f22ddb95070023f75e77dc9619c9" target="_blank">
+                            ITCloudMgmtClientUtils
                         </a>
                         [Script Include]
                     </h6>
  
                     <p>Error count: 2 </p>
                     <p>Warning count: 0 </p>
-                    <p>File last modified by : kavinder.singh</p>
+                    <p>File last modified by : abinash.gupta</p>
                     <table class="table table-hover table-inverse">
                         <thead>
                             <tr>
@@ -55,31 +55,31 @@
                                 <td class="x--col-2">Line 1:1</td>
                                 <td class="x--col-2">_SNOW0012</td>
                                 <td class="x--col-3"> function declaration not found</td>
-                                <td class="x--col-3">UNKNOWN</td>
+                                <td class="x--col-3"></td>
                                 <td class="x--col-5 code">
                                     <span class="error">
-                                        [1]: var SabaLMSCacheUtil &#x3D; Class.create();
+                                        [1]: var ITCloudMgmtClientUtils &#x3D; Class.create();
                                     </span>
                                     <br>                                     <span class="">
-                                        [2]: SabaLMSCacheUtil.sabaCertificateNTime &#x3D; &#x27;&#x27;;
+                                        [2]: ITCloudMgmtClientUtils.prototype &#x3D; Object.extendsObject(global.AbstractAjaxProcessor, {
                                     </span>
                                     <br> 
                                 </td>
                             </tr>
                             <tr>
-                                <td class="x--col-2">Line 112:3</td>
+                                <td class="x--col-2">Line 23:4</td>
                                 <td class="x--col-2">_SNOW0005</td>
-                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
-                                <td class="x--col-3">UNKNOWN</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
                                 <td class="x--col-5 code">
                                     <span class="">
-                                        [111]: 	} catch(e){
+                                        [22]: 		catch(e){
                                     </span>
                                     <br>                                     <span class="error">
-                                        [112]: 		gs.log(&#x27;SabaLMSCacheUtil.addMonthsAndReturnDate FAILED! Start date: &#x27; + startDate + &#x27; months: &#x27; + months);
+                                        [23]: 			gs.info(&quot;CloudMgmtClientUtil: &quot;+e);
                                     </span>
                                     <br>                                     <span class="">
-                                        [113]: 	}
+                                        [24]: 		}
                                     </span>
                                     <br> 
                                 </td>
@@ -90,15 +90,15 @@
 
                 <div class="file--container">
                     <h6>File Name :
-                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=2f9067436f53fd00bd79a4f44b3ee411" target="_blank">
-                            SabaLMSRestUtil
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=0333e364dbf943c0e67256a8dc961968" target="_blank">
+                            NewHireOktaWrapperRESTMessage
                         </a>
                         [Script Include]
                     </h6>
  
                     <p>Error count: 1 </p>
                     <p>Warning count: 0 </p>
-                    <p>File last modified by : manik.narula</p>
+                    <p>File last modified by : sonam.arora</p>
                     <table class="table table-hover table-inverse">
                         <thead>
                             <tr>
@@ -114,13 +114,2381 @@
                                 <td class="x--col-2">Line 1:1</td>
                                 <td class="x--col-2">_SNOW0012</td>
                                 <td class="x--col-3"> function declaration not found</td>
-                                <td class="x--col-3">UNKNOWN</td>
+                                <td class="x--col-3">sonam.arora</td>
                                 <td class="x--col-5 code">
                                     <span class="error">
-                                        [1]: var SabaLMSRestUtil &#x3D;  Class.create();
+                                        [1]: var NewHireOktaWrapperRESTMessage &#x3D; Class.create();
                                     </span>
                                     <br>                                     <span class="">
-                                        [2]: SabaLMSRestUtil.prototype &#x3D; {
+                                        [2]: /*
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=0cf2eb64db3d43c0e67256a8dc9619e8" target="_blank">
+                            NewHireOktaWrapperExecuteRESTMessage
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 4 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : sonam.arora</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var NewHireOktaWrapperExecuteRESTMessage &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: NewHireOktaWrapperExecuteRESTMessage.prototype &#x3D; {
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 3:28</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [2]: NewHireOktaWrapperExecuteRESTMessage.prototype &#x3D; {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [3]:     initialize: function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [4]:     },
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 16:121</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [15]: 
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [16]: 				if(messageResult.getStatusCode() &#x3D;&#x3D; &#x27;&#x27; &amp;&amp; messageResult.getBody().indexOf(&#x27;java.net.SocketTimeoutException&#x27;) !&#x3D; -1) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [17]: 					//this._log.warning(&#x27;SI&#x27;, this.type, &#x27;execute failed times &#x27; + (count + 1) + &#x27; with timeout&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 18:52</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [17]: 					//this._log.warning(&#x27;SI&#x27;, this.type, &#x27;execute failed times &#x27; + (count + 1) + &#x27; with timeout&#x27;);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [18]: 				} else if(messageResult.getStatusCode() &gt; 500) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [19]: 					//this._log.warning(&#x27;SI&#x27;, this.type, &#x27;execute failed times &#x27; + (count + 1) + &#x27; with error &#x27; + messageResult.getErrorMessage());
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=0d1c3fee13a0c3406394b1676144b0ad" target="_blank">
+                            ITCloudManagementCustomUtils
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 4 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : abinash.gupta</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var ITCloudManagementCustomUtils &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: ITCloudManagementCustomUtils.prototype &#x3D; {
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 67:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [66]: 			{
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [67]: 				gs.info(&#x27;CustomUtil Error: &#x27;+err);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [68]: 			}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 91:22</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [90]: 			var RITMDisplay &#x3D; &#x27;[code]&lt;a href&#x3D;&quot;&#x27;+RITMLink+&#x27;&quot;&gt;&#x27;+this.reqItem.getValue(&#x27;number&#x27;)+&#x27;&lt;/a&gt;[/code]&#x27;;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [91]: 			var Cld_RCALink &#x3D; &#x27;/$pa_dashboard.do?embedded&#x3D;true&amp;sysparm_dashboard&#x3D;a42715a593c572004a9032bfa67ffb46&#x27;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [92]: 			var Cld_RCA &#x3D; &#x27;[code]&lt;a href&#x3D;&quot;&#x27;+Cld_RCALink+&#x27;&quot;&gt;View Cloud Root Cause Analysis&lt;/a&gt;[/code]&#x27;;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 246:12</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [245]: 			getMyAssignmentGroup: function(){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [246]: 				return &quot;sys_idINjavascript:getMyGroups()^type&#x3D;6561a7844a36232a00dce55046280d9c&quot;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [247]: 			},
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=0dfe8936dbe54f40e67256a8dc9619da" target="_blank">
+                            NewHire_OKTA_Account
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 6 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : sonam.arora</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var NewHire_OKTA_Account &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: NewHire_OKTA_Account.prototype &#x3D; {
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 11:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [10]: 		
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [11]: 		gs.info(&#x27;OKTA: record sys_id &#x27;+ record);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [12]: 		
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 20:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [19]: 			
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [20]: 			gs.info(&quot;OKTA: user exists result-&quot; +exists);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [21]: 			
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 26:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [25]: 				
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [26]: 				gs.info(&quot;OKTA: user created result-&quot; +created);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [27]: 				
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 33:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [32]: 				success &#x3D; this._wrapperOKTAClient.grantAccess(gr.email.toString(), false);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [33]: 				gs.info(&quot;OKTA: user grant access result-&quot; + success);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [34]: 			}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 37:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [36]: 		}
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [37]: 		gs.info(&#x27;OKTA: No user profile exists in SURF&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [38]: 		
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=10d995b113d6ea007b9e38fed144b07a" target="_blank">
+                            workday_cust_workday_future_retriever
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 9 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : amit.manchanda</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var workday_cust_workday_future_retriever &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: workday_cust_workday_future_retriever.prototype &#x3D; Object.extendsObject(workday_future_retriever,{
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 15:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [14]: 		if (this.shouldSkipTransform(source, target)) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [15]: 			gs.log(&#x27;inside workday_cust_workday_future_retriever ignoring transform&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [16]: 			// We are not going to do any work here ...
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 20:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [19]: 		}
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [20]: 		gs.log(&#x27;inside workday_cust_workday_future_retriever Calling parent transform&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [21]: 		workday_future_retriever.prototype.transform.call(this, source, target);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 35:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [34]: 		isRehireProcess &#x3D; rehireEmp.checkisRehire(source);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [35]: 		gs.log(&#x27;inside workday_cust_workday_future_retriever shouldSkipTransform. Rehire is --&gt;&#x27;+isRehireProcess);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [36]: 		
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 57:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [56]: 			var profile &#x3D; new GlideRecord(&#x27;hr_profile&#x27;);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [57]: 			gs.log(&#x27;Inside the cust Future retriever &#x27;+target.sys_id);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [58]: 			if (profile.get(target.sys_id))
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 62:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [61]: 			if (!(source.wd_current_hire_date &gt; this.getTodayDate() || (source.wd_terminated &#x3D;&#x3D; &quot;1&quot; &amp;&amp; source.wd_end_date &gt;&#x3D; this.getTodayDate())) || transactionLogMatched) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [62]: 				gs.log(&#x27;inside cust_workday_future_retriever ignoring transform&#x27;+source.wd_employee_id,&#x27;Cust Future Retriever&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [63]: 				//gs.log(&#x27;_onboarding_ Skipping for : &#x27;+source.wd_full_legal_name);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 80:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [79]: 		if((isRehireProcess &#x3D;&#x3D; true|| isRehireProcess &#x3D;&#x3D;&#x27;true&#x27;) &amp;&amp; (source.process_type &#x3D;&#x3D; &#x27;future&#x27;)){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [80]: 			gs.log(&#x27;Inside cust future retriever we will not update the manager for rehire&#x27;+source.wd_employee_id,&#x27;Cust Future Retriever&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [81]: 			shouldSkipManagerUpdate &#x3D;  true;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 88:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [87]: 			if (source.wd_current_hire_date &gt; this.getTodayDate()) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [88]: 				gs.log(&#x27;In cust future retriever for future : returning false - ie. we will update the manager &#x27;+source.wd_employee_id,&#x27;Cust Future Retriever&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [89]: 				shouldSkipManagerUpdate  &#x3D; false;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 91:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [90]: 			} else {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [91]: 				gs.log(&#x27;In cust future retriever for future : returning false - ie. we will not update the manager&#x27;+source.wd_employee_id,&#x27;Cust Future Retriever&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [92]: 				shouldSkipManagerUpdate &#x3D; true;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=10ed1c1f6fc70a004dd94ad44b3ee4f8" target="_blank">
+                            OktaWrapperExecuteRESTMessage
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : sonam.arora</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var OktaWrapperExecuteRESTMessage &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: OktaWrapperExecuteRESTMessage.prototype &#x3D; {
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=84f97f6bdb654f007236d9f0ce9619dc" target="_blank">
+                            SourceTagger
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : chaitanya</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var SourceTagger &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: SourceTagger.prototype &#x3D; {
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=8f211cb8db3983c0e67256a8dc96197b" target="_blank">
+                            OktaWrapperClientNewHire
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 7 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : sonam.arora</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var OktaWrapperClientNewHire &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: /*
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 44:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [43]: 
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [44]: 		gs.info(&#x27;OKTA: user exists fn started&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [45]: 		var message &#x3D; this._getNewMessage(this._messageTypes.Exists);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 68:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [67]: 		this._log.audit(&#x27;SI&#x27;, this.type, &#x27;create begin&#x27;, firstName, lastName, email);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [68]: 		gs.info(&#x27;OKTA: User created fn entered&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [69]: 		try {
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 78:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [77]: 		var messageResult &#x3D; this._messageRunner.execute(message);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [78]: 		gs.info(&#x27;OKTA: create msg &#x27;+ messageResult);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [79]: 		var result &#x3D; (messageResult.success &amp;&amp; messageResult.response.getStatusCode() &#x3D;&#x3D; 200);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 86:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [85]: 		catch(ex) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [86]: 			gs.info(&#x27;OKTA: error &#x27; + ex);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [87]: 			var message &#x3D; ex.getMessage();
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 88:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [87]: 			var message &#x3D; ex.getMessage();
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [88]: 			gs.info(&#x27;OKTA: message &#x27; + message);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [89]: 		}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 116:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [115]: 		var result &#x3D; new OktaWrapperRESTMessage(messageType.Name, messageType.Method);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [116]: 		gs.info(&#x27;OKTA: user global result&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [117]: 		result.setStringParameter(&#x27;endpoint&#x27;, gs.getProperty(messageType.Endpoint));
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=8f9798db6fc70a004dd94ad44b3ee4c6" target="_blank">
+                            OktaWrapperRESTMessage
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : sonam.arora</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var OktaWrapperRESTMessage &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: /*
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=99b9acdb6fc70a004dd94ad44b3ee4ff" target="_blank">
+                            OktaWrapperClient
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 7 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : sonam.arora</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var OktaWrapperClient &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: /*
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 44:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [43]: 
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [44]: 		gs.info(&#x27;OKTA: user exists fn started&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [45]: 		var message &#x3D; this._getNewMessage(this._messageTypes.Exists);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 68:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [67]: 		this._log.audit(&#x27;SI&#x27;, this.type, &#x27;create begin&#x27;, firstName, lastName, email);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [68]: 		gs.info(&#x27;OKTA: User created fn entered&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [69]: 		try {
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 78:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [77]: 		var messageResult &#x3D; this._messageRunner.execute(message);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [78]: 		gs.info(&#x27;OKTA: create msg &#x27;+ messageResult);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [79]: 		var result &#x3D; (messageResult.success &amp;&amp; messageResult.response.getStatusCode() &#x3D;&#x3D; 200);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 86:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [85]: 		catch(ex) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [86]: 			gs.info(&#x27;OKTA: error &#x27; + ex);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [87]: 			var message &#x3D; ex.getMessage();
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 88:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [87]: 			var message &#x3D; ex.getMessage();
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [88]: 			gs.info(&#x27;OKTA: message &#x27; + message);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [89]: 		}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 116:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [115]: 		var result &#x3D; new OktaWrapperRESTMessage(messageType.Name, messageType.Method);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [116]: 		gs.info(&#x27;OKTA: user global result&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [117]: 		result.setStringParameter(&#x27;endpoint&#x27;, gs.getProperty(messageType.Endpoint));
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=c4d92768dbfdc78023f75e77dc9619e7" target="_blank">
+                            SalesTerritoryLibrary
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : ritwik.nallavelly</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var SalesTerritoryLibrary &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: SalesTerritoryLibrary.prototype &#x3D; {
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=cc8417345b213200ca17273a41f91aee" target="_blank">
+                            PolicyExecutionUtil
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 25 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : devaraj.sundararajan@snc</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var PolicyExecutionUtil &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: PolicyExecutionUtil.prototype &#x3D; {
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 3:25</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [2]: PolicyExecutionUtil.prototype &#x3D; {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [3]: 	initialize: function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [4]: 	},
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 20:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.warn should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [19]: 		}catch( err){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [20]: 			gs.warn(&#x27;isGroupMember(&#x27; + userId +&#x27;,&#x27; + groupId +&#x27;) failed: &#x27; + err  );
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [21]: 			isMember &#x3D; false;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 41:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.warn should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [40]: 		}catch( err){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [41]: 			gs.warn(&#x27;isRoleMember(&#x27; + userId +&#x27;,&#x27; + roleId +&#x27;) failed: &#x27; + err);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [42]: 			isMember &#x3D; false;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 52:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [51]: 		var evaluationLog &#x3D; &#x27;&#x27;;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [52]: 		gs.info( &#x27;resolveExpressions() value is &#x3D; &#x27; + value);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [53]: 		if(dataMap !&#x3D;null &amp;&amp; (value.indexOf( &#x27;$(&#x27;)  !&#x3D; -1 || value.indexOf( &#x27;${&#x27;)  !&#x3D; -1)){
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 59:6</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [58]: 					number &#x3D; this.getRandomIntInclusive(0,999);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [59]: 					gs.info( &#x27;getRandomIntInclusive() number &#x3D; &#x27; +number);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [60]: 				}catch(err){
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 61:6</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [60]: 				}catch(err){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [61]: 					gs.info( &#x27;resolveExpressions() error &#x3D;&#x27; +err);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [62]: 				}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 75:6</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [74]: 				}catch(err){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [75]: 					gs.info( &#x27;resolveExpressions() error &#x3D; &#x27; + err);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [76]: 				}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 81:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [80]: 			}
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [81]: 			gs.info( &#x27;resolveExpressions() value is &#x27;+ inputVal + &#x27; evaluated value is &#x3D; &#x27; + value);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [82]: 			return value;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 144:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [143]: 				groupId);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [144]: 				gs.info( &#x27;updateRuleLog() Trail id:&#x27; + trailId);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [145]: 			}catch(error){
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 146:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [145]: 			}catch(error){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [146]: 				gs.info( &#x27; updateRuleLog()  error &#x3D;   &#x27; + error);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [147]: 			}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 155:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [154]: 				number &#x3D; number.replace(&#x27;Policy&#x27;, &#x27;&#x27;);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [155]: 				gs.info( &#x27;getNextNumber() number &#x3D; &#x27; +number);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [156]: 			}catch(err){
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 157:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [156]: 			}catch(err){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [157]: 				gs.info(&#x27;getNextNumber() error &#x3D; &#x27;+ error);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [158]: 			}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 176:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [175]: 			var orderInfo &#x3D; new GlideRecord(&quot;sn_cmp_order&quot;);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [176]: 			gs.info( &quot;getOrderFormData orderId &#x3D; &quot; + orderId);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [177]: 			if( orderInfo.isValid()){
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 180:6</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [179]: 					orderFormData &#x3D; orderInfo.getValue(&quot;order_form_data&quot;);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [180]: 					gs.info(&quot;getOrderFormData() orderFormData:&quot; + orderFormData);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [181]: 				}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 183:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [182]: 			}
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [183]: 			gs.info( &quot;getOrderFormData orderFormData &#x3D; &quot; + orderFormData);			
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [184]: 			return orderFormData;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 192:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [191]: 			var endPointIdObj &#x3D; expressionUtil.getMetadataRelations(nodeId, &quot;Use End Point To::Use End Point From&quot;, &quot;cmdb_ci_endpoint_vnic&quot;, &quot;flat&quot;, 1);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [192]: 			gs.info(&#x27;getIPAMInfoForNode() endPointIdObj:&#x27; + endPointIdObj);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [193]: 			var endPointValue &#x3D; &#x27;&#x27;;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 196:16</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [195]: 				endPointValue &#x3D; JSON.parse(endPointIdObj)[0].value;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [196]: 			}catch( err){
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [197]: 			}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 199:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [198]: 				
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [199]: 			gs.info(&#x27;getIPAMInfoForNode() endPointValue:&#x27; + endPointValue);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [200]: 			if( !gs.nil(endPointValue)){
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 202:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [201]: 				var nicSysIdObj &#x3D; expressionUtil.getMetadataAssociations(endPointValue, &quot;Implement End Point To::Implement End Point From&quot;, &quot;cmdb_ci_vmware_nic, cmdb_ci_nic&quot;, true, {});
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [202]: 				gs.info(nicSysIdObj);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [203]: 				var nicSysIdValue &#x3D; &#x27;&#x27;;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 206:17</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [205]: 					nicSysIdValue &#x3D; JSON.parse(nicSysIdObj)[0].value;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [206]: 				}catch( err){
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [207]: 				}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 214:8</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [213]: 							ipamInfo.privateIP &#x3D; privateIP;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [214]: 							gs.info(&#x27;getIPAMInfoForNode() privateIP:&#x27; + privateIP);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [215]: 						}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 218:6</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [217]: 					var subnetObj &#x3D; expressionUtil.getMetadataAssociations(nicSysIdValue, &quot;Contains::Contained by&quot;, &quot;cmdb_ci_cloud_subnet&quot;, false, {});
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [218]: 					gs.info(&quot;getIPAMInfoForNode() subnet:&quot; + subnetObj);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [219]: 					var subnetIdValue &#x3D; &#x27;&#x27;;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 222:18</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [221]: 						subnetIdValue &#x3D; JSON.parse(subnetObj)[0].value;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [222]: 					}catch( err){
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [223]: 					}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 234:7</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [233]: 						var orderFormDataObj &#x3D; JSON.parse(orderFormData);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [234]: 						gs.info( &quot;getIPAMInfoForNode() subnet id:&quot; + orderFormDataObj.Virtual_Server_SubnetId);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [235]: 						ipamInfo.subnet &#x3D; orderFormDataObj.Virtual_Server_SubnetId;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=eae18b5cdbf98f80e67256a8dc961915" target="_blank">
+                            NewHireOktaWrapperClient
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : sonam.arora</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3">sonam.arora</td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var NewHireOktaWrapperClient &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: /*
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=f16e6bdadbed074023f75e77dc9619ef" target="_blank">
+                            HRORequestHelper
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 12 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : amit.manchanda</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: var HRORequestHelper &#x3D; Class.create();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: HRORequestHelper.prototype &#x3D; {
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 3:25</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [2]: HRORequestHelper.prototype &#x3D; {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [3]: 	initialize: function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [4]: 		
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 11:27</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [10]: 		hr_onboarding.subject_person  &#x3D; current.user;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [11]: 		hr_onboarding.company &#x3D; &#x27;4c5d24ac60d3054006ff177ed89caef0&#x27;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [12]: 		hr_onboarding.hr_profile &#x3D; current.sys_id;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 16:30</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [15]: 		hr_onboarding.u_nho_location &#x3D; current.location;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [16]: 		hr_onboarding.hr_service &#x3D; &#x27;64fa4c53534222003066a5f4a11c0875&#x27;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [17]: 		var dep  &#x3D; new GlideRecord(&#x27;cmn_department&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 34:43</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [33]: 	
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [34]: 	createRehireCase: function(source,target){
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [35]: 		
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 58:40</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [57]:         leReqIfAny.addQuery(&#x27;subject_person&#x27;,hr_pr.user);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [58]: 		leReqIfAny.addQuery(&#x27;topic_category&#x27;,&#x27;1e85491e53032200eb7c0a1806dc3449&#x27;);	
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [59]: 		leReqIfAny.query();
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 77:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [76]: 		
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [77]: 		gs.log(&#x27;inside createExistingEmpESRQ location Details&#x27;+geo+location,&#x27;AmitM&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [78]: 		
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 81:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [80]: 		EmpDeptDetails &#x3D; this.getEmpDepartment(source.wd_department_id);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [81]: 		gs.log(&#x27;inside createExistingEmpESRQ Dept Detail Arr&#x27;+EmpDeptDetails,&#x27;AmitM&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [82]: 		if(JSUtil.notNil(EmpDeptDetails)){
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 87:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [86]: 		}
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [87]: 		gs.log(&#x27;inside createESRQ department/CC Details&#x27;+ dept+ costcenter,&#x27;AmitM&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [88]: 		var hr_onboarding_req &#x3D; new GlideRecord(&#x27;sn_hr_le_case&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 94:34</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [93]: 		hr_onboarding_req.subject_person  &#x3D; this.getEmpFromEmpID(source.wd_employee_id);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [94]: 		hr_onboarding_req.hr_service &#x3D; &#x27;64fa4c53534222003066a5f4a11c0875&#x27;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [95]: 		
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 105:31</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [104]: 		hr_onboarding_req.u_job_title &#x3D;  source.wd_job_title;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [105]: 		hr_onboarding_req.company &#x3D; &#x27;4c5d24ac60d3054006ff177ed89caef0&#x27;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [106]: 		hr_onboarding_req.hr_service &#x3D; &#x27;64fa4c53534222003066a5f4a11c0875&#x27;;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 106:34</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [105]: 		hr_onboarding_req.company &#x3D; &#x27;4c5d24ac60d3054006ff177ed89caef0&#x27;;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [106]: 		hr_onboarding_req.hr_service &#x3D; &#x27;64fa4c53534222003066a5f4a11c0875&#x27;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [107]: 		hr_onboarding_req.contact_type &#x3D; &#x27;other&#x27;;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/catalog_script_client.do?sys_id=19a75cacdb310b003421fde31d9619ef" target="_blank">
+                            Hide Fields for RITM and Task
+                        </a>
+                        [Catalog Client Scripts]
+                    </h6>
+                    <p>No Errors Found</p>                 </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/catalog_script_client.do?sys_id=27305e44db318700712ff1141d9619b2" target="_blank">
+                            Hide operation variables
+                        </a>
+                        [Catalog Client Scripts]
+                    </h6>
+                    <p>No Errors Found</p>                 </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/catalog_script_client.do?sys_id=2a068568db3d878023f75e77dc961905" target="_blank">
+                            Hide HI Checkbox for IAM enabled CC
+                        </a>
+                        [Catalog Client Scripts]
+                    </h6>
+ 
+                    <p>Error count: 3 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : bharathi.ramadass</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 7:12</td>
+                                <td class="x--col-2">_SNOW0016</td>
+                                <td class="x--col-3">Do not use GlideRecord in client script</td>
+                                <td class="x--col-3">bharathi.ramadass</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [6]: 	var cc&#x3D;&#x27;&#x27;;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [7]: 	var usr &#x3D; new GlideRecord (&#x27;sys_user&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [8]: 	usr.addQuery(&#x27;user_name&#x27;,user);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 13:14</td>
+                                <td class="x--col-2">_SNOW0016</td>
+                                <td class="x--col-3">Do not use GlideRecord in client script</td>
+                                <td class="x--col-3">bharathi.ramadass</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [12]: 		cc &#x3D; usr.department;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [13]: 		var dept &#x3D; new GlideRecord(&#x27;cmn_department&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [14]: 		dept.addQuery(&#x27;sys_id&#x27;,cc);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 20:15</td>
+                                <td class="x--col-2">_SNOW0016</td>
+                                <td class="x--col-3">Do not use GlideRecord in client script</td>
+                                <td class="x--col-3">bharathi.ramadass</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [19]: 	
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [20]: 	var iam_cc &#x3D; new GlideRecord(&#x27;u_iam_enabled_costcenters&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [21]: 	iam_cc.addQuery(&#x27;u_cost_center&#x27;,dept_code);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/catalog_script_client.do?sys_id=3860bdd9db59430023f75e77dc961969" target="_blank">
+                            Hide operation variables
+                        </a>
+                        [Catalog Client Scripts]
+                    </h6>
+                    <p>No Errors Found</p>                 </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/catalog_script_client.do?sys_id=41b72a7edb9d8380e67256a8dc9619f5" target="_blank">
+                            setVariables on Change of resourceId
+                        </a>
+                        [Catalog Client Scripts]
+                    </h6>
+                    <p>No Errors Found</p>                 </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script_client.do?sys_id=484304a3dba90780e67256a8dc961959" target="_blank">
+                            Set AppCode Limit
+                        </a>
+                        [Client Script]
+                    </h6>
+                    <p>No Errors Found</p>                 </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/catalog_script_client.do?sys_id=57e3c460db310b003421fde31d9619d5" target="_blank">
+                            setAppCode Field
+                        </a>
+                        [Catalog Client Scripts]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : abinash.gupta</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 9:3</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3">abinash.gupta</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [8]: 	else if(g_form.getDisplayValue(&#x27;application_name&#x27;) &#x3D;&#x3D; &#x27;!Application not found&#x27;)
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [9]: 		{
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [10]: 			// Do Nothing
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/catalog_script_client.do?sys_id=bcfe3b09dbf40b8086b2f3231d961984" target="_blank">
+                            Hide Fields for RITM and Task
+                        </a>
+                        [Catalog Client Scripts]
+                    </h6>
+                    <p>No Errors Found</p>                 </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/catalog_script_client.do?sys_id=d4f0d572136047406394b1676144b0cc" target="_blank">
+                            AppCode Character Limit
+                        </a>
+                        [Catalog Client Scripts]
+                    </h6>
+                    <p>No Errors Found</p>                 </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/catalog_script_client.do?sys_id=f35d893a132047406394b1676144b01f" target="_blank">
+                            Set ADMAccountID readonly
+                        </a>
+                        [Catalog Client Scripts]
+                    </h6>
+                    <p>No Errors Found</p>                 </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script.do?sys_id=4438047a13e4c3406394b1676144b012" target="_blank">
+                            ITCloudManagement-Create Incident/Change
+                        </a>
+                        [Business Rule]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : abinash.gupta</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: 	
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script.do?sys_id=45c51a9adb3376484106f9c9bf96195f" target="_blank">
+                            Add Members to HRSP Groups
+                        </a>
+                        [Business Rule]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : siddhartha.kadiyala</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: 
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script.do?sys_id=45fbe0a0dbf9cf80e67256a8dc9619d3" target="_blank">
+                            Add to new hire group
+                        </a>
+                        [Business Rule]
+                    </h6>
+ 
+                    <p>Error count: 4 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : siddhartha.kadiyala</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3">siddhartha.kadiyala</td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: 
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 1:62</td>
+                                <td class="x--col-2">_SNOW0004</td>
+                                <td class="x--col-3">grC ; In place of getRowcount use glide aggregate to get result count</td>
+                                <td class="x--col-3">siddhartha.kadiyala</td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: 
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 8:29</td>
+                                <td class="x--col-2">_SNOW0004</td>
+                                <td class="x--col-3">grC ; In place of getRowcount use glide aggregate to get result count</td>
+                                <td class="x--col-3">siddhartha.kadiyala</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [7]: 	grC.query();
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [8]: 	if(grC.getRowCount() &#x3D;&#x3D; 0) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [9]: 		var gr &#x3D; new GlideRecord(&#x27;sys_user_grmember&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 13:253</td>
+                                <td class="x--col-2">_SNOW0004</td>
+                                <td class="x--col-3">grC ; In place of getRowcount use glide aggregate to get result count</td>
+                                <td class="x--col-3">siddhartha.kadiyala</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [12]: 		
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [13]: 		if(current.active &amp;&amp; (current.employment_type &#x3D;&#x3D; &quot;Regular&quot; || current.employment_type &#x3D;&#x3D; &quot;Intern (Fixed Term)&quot;) &amp;&amp; (new OnboardingUtils().hasValidRegion(current.region, current.work_country)) &amp;&amp; (current.employment_start_date &gt; new GlideDateTime())) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [14]: 			gr.group.setDisplayValue(&quot;HRSP New Hire&quot;); //c7dfb25adb6d0b40e67256a8dc96191b
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script.do?sys_id=8bad1f04db7dc38023f75e77dc961948" target="_blank">
+                            Capture Laptop model for new hire
+                        </a>
+                        [Business Rule]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : bharathi.ramadass</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3">bharathi.ramadass</td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: 
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script.do?sys_id=ad6c9dbedbe10b4023f75e77dc961987" target="_blank">
+                            Create Request For HR Onboarding
+                        </a>
+                        [Business Rule]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : amit.manchanda</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: 
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script.do?sys_id=ae4404ecdbf1878023f75e77dc9619bf" target="_blank">
+                            Update existing HR Onbdg Req
+                        </a>
+                        [Business Rule]
+                    </h6>
+ 
+                    <p>Error count: 5 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : amit.manchanda</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: 	gs.log(&quot;inside br &quot;,&quot;AmitM&quot;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 2:2</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [2]: 	gs.log(&quot;inside br &quot;,&quot;AmitM&quot;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [3]: 	var leReqIfAny &#x3D; new GlideRecord(&#x27;sn_hr_le_case&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 5:39</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [4]: 	leReqIfAny.addQuery(&#x27;subject_person&#x27;,current.user);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [5]: 	leReqIfAny.addQuery(&#x27;topic_category&#x27;,&#x27;1e85491e53032200eb7c0a1806dc3449&#x27;);	
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [6]: 	leReqIfAny.query();
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 7:2</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [6]: 	leReqIfAny.query();
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [7]: 	gs.log(&quot;count is &quot;+leReqIfAny.getRowCount(),&quot;AmitM&quot;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [8]: 	// do not create if there is wip case.. no limit of date as of now
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 17:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3">amit.manchanda</td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [16]: 	        }
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [17]: 			gs.log(&quot;updated &quot;,&quot;AmitM&quot;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [18]: 			leReqIfAny.update();
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script.do?sys_id=b3e4eda8db3503c0e67256a8dc961998" target="_blank">
+                            
+                        </a>
+                        [Business Rule]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : barkha.bhatia</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3">barkha.bhatia</td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: 	var gr &#x3D; new GlideRecord(&#x27;u_quote_documents&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev3.service-now.com/sys_script.do?sys_id=da1d51a0db3503c0e67256a8dc9619ed" target="_blank">
+                            
+                        </a>
+                        [Business Rule]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : barkha.bhatia</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 1:1</td>
+                                <td class="x--col-2">_SNOW0012</td>
+                                <td class="x--col-3"> function declaration not found</td>
+                                <td class="x--col-3">barkha.bhatia</td>
+                                <td class="x--col-5 code">
+                                    <span class="error">
+                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [2]: 	
                                     </span>
                                     <br> 
                                 </td>
