@@ -69,8 +69,9 @@ node_modules
 .vscode/
 
 config/instance.xml
-
+snow-rules-git
 notes.me
 test.js
 test1.js
 # End of https://www.gitignore.io/api/macos
+
