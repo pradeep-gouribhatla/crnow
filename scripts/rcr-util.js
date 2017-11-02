@@ -33,19 +33,22 @@ module.exports = (function() {
         return rulesObj;
     }
 
-    async function _getSimplePayload(xmlPayload, scriptClass, scriptFName) {
+    async function _getFilePayload(xmlPayload, scriptClass, scriptFName) {
         try {
             let simpleRecordObj = {};
             let payloadObj = await parseXMLWrapper(xmlPayload);
             let recordObj = payloadObj["record_update"][scriptClass][0];
-            Object.keys(recordObj).forEach(attr => {
-                if (attr == "$") return;
-                simpleRecordObj[attr] = recordObj[attr][0];
-                //TODO:  if (typeof simpleRecordObj[attr] == 'object')
-            });
+            Object.keys(recordObj).forEach(attr => (simpleRecordObj[attr] = recordObj[attr][0]));
+            if (payloadObj["record_update"]["sys_app_file"]) {
+                let appFileObj = payloadObj["record_update"]["sys_app_file"][0];
+                Object.keys(appFileObj).forEach(attr => (simpleRecordObj[attr] = appFileObj[attr][0]));
+            } else {
+                simpleRecordObj.sys_class_name = scriptClass;
+            }
             return simpleRecordObj;
         } catch (error) {
             console.error("Error parsing file : " + scriptFName);
+            if (global.debug) console.error(error);
         }
     }
 
@@ -56,6 +59,110 @@ module.exports = (function() {
                 else resolve(data);
             });
         });
+    }
+
+    function printJsonToCmdLine(resultsObj) {
+        if (!resultsObj || !Array.isArray(resultsObj.results)) return;
+
+        const reviewResults = resultsObj.results.map(result => {
+            const _result = {};
+            _result.instance = resultsObj.instanceName;
+            _result.file = {
+                sysid: result.fileSysId,
+                type: result.class,
+                name: result.fileName,
+                versionId: result.versionSysId
+            };
+            _result.reviews = result.messages
+                .filter(reviewObj => {
+                    return global.showAllFindings ? true : reviewObj.developer != "UNKNOWN";
+                })
+                .map(reviewObj => {
+                    return {
+                        line: reviewObj.line,
+                        ruleid: reviewObj.ruleId,
+                        message: reviewObj.message,
+                        developer: reviewObj.developer,
+                        error_level: reviewObj.severity == 2 ? "error" : "warning" //TODO
+                    };
+                });
+            return _result;
+        });
+
+        // filter out the results with no findings(ex- if no developer found, we ignore messages in delta case)
+        const _cmdLineOutput = reviewResults.filter(rObj => rObj.reviews.length > 0);
+
+        console.log(JSON.stringify(_cmdLineOutput));
+    }
+
+    //Show results in browser
+    function showResultsInBrowser(resultsObj) {
+        if (!resultsObj || !Array.isArray(resultsObj.results)) return;
+
+        if (!global.showAllFindings) {
+            resultsObj.results = resultsObj.results.filter(result => {
+                result.messages = result.messages.filter(reviewObj => reviewObj.developer != "UNKNOWN");
+                return result.messages.length > 0;
+            });
+        }
+
+        const htmlFilePath = resultsUtil.saveResultsToHTMLFile(resultsObj);
+        if (!htmlFilePath) throw new Error("Error generating HTML file");
+        openURLUtil.open("file://" + htmlFilePath);
+    }
+
+    function displayResults(findingsList, view) {
+        const completeResultsObj = {
+            reportRunAt: new Date(),
+            instanceName: instance.getInstanceName(),
+            instanceURL: instance.getFullURL,
+            userName: instance.getUserName(),
+            results: findingsList
+        };
+
+        if (global.json || view == "JSON") {
+            printJsonToCmdLine(completeResultsObj);
+        } else {
+            showResultsInBrowser(completeResultsObj);
+        }
+    }
+
+    async function appendFilesSource(reviewResults) {
+        if (!Array.isArray(reviewResults)) return;
+
+        const filesList = reviewResults.map(file => {
+            return { fileType: file.class, fileSysId: file.fileSysId };
+        });
+
+        // Get version Ids for the files
+        // try {
+        //     var versionIdsMap = await nowHelper.fetchFileVersions(filesList);
+        // } catch (error) {
+        //     console.log(error);
+        // }
+
+        // Get developer for the findings
+        try {
+            var devTags = await nowHelper.fetchMultipleFileTags(filesList);
+            if (!devTags) throw new Error("DEBUG: Could not get dev tags");
+
+            devTags.forEach(fileObj => {
+                const reviewDataObj = reviewResults.find(_file => _file.fileSysId == fileObj.fileSysId);
+                if (!reviewDataObj || !Array.isArray(reviewDataObj.messages)) return;
+
+                reviewDataObj.versionSysId = fileObj.versionSysId;
+                reviewDataObj.messages.forEach(rl => {
+                    Object.entries(fileObj.tags).forEach(entry => {
+                        if (entry[1].indexOf(rl.line) >= 0) rl.developer = entry[0];
+                    });
+                    if (!rl.developer) rl.developer = "UNKNOWN";
+                });
+            });
+            //console.dir(reviewResults);
+        } catch (error) {
+            console.log(error);
+            return;
+        }
     }
 
     const reviewUpdateSet = async function(updateSetId) {
@@ -75,6 +182,11 @@ module.exports = (function() {
         try {
             //TODO :: change to functional approach
             //let reviewResults = await Promise.all(filesData.map(async (fileData) => {
+
+            //let filesPayloadList = filesData.map(async (fileData) => {});
+
+            //movee this to different function
+            let filesPayloadList = [];
             for (let i = 0; i < filesData.length; i++) {
                 let fileData = filesData[i];
                 const xmlPayload = fileData.payload;
@@ -82,70 +194,16 @@ module.exports = (function() {
                 const _lastIndex = fileData.name.lastIndexOf("_");
                 const scriptClass = fileData.name.substring(0, _lastIndex);
 
-                const scriptPayload = await _getSimplePayload(xmlPayload, scriptClass, scriptFName);
-                const script = scriptPayload.script;
-                //console.dir(scriptPayload);
-
-                //get matching rules for record
-                const rules = await ruleHelper.getAllRulesForRecord(scriptPayload);
-                //console.dir(rules);
-
-                /******************************************************
-                ********             REVIEW FILE               ********
-                *******************************************************/
-                let _results = reviewFile(script, rules, scriptFName);
-                /******************************************************/
-
-                // _results.forEach(rs => {
-                //     rs.messages.forEach( msg => console.log(msg)); // });
-                //return thisFileResults;
-
-                //Code smells
-                if (!_results || _results.length <= 0) return [];
-
-                let thisFileResults = _results[0];
-                thisFileResults.fileName = scriptFName;
-                thisFileResults.fileSysId = scriptPayload.sys_id;
-                thisFileResults.updatedBy = scriptPayload.sys_updated_by;
-                thisFileResults.class = scriptPayload.sys_class_name;
-                thisFileResults.type = util.getTypeByClass(scriptPayload.sys_class_name);
-
-                const scriptLines = script.split("\n");
-                const noOfLines = scriptLines.length;
-                thisFileResults.messages.forEach(rl => {
-                    const errlineNo = rl.line - 1;
-                    let stLineNo = errlineNo - 1 <= 0 ? 0 : errlineNo - 1;
-                    let enLineNo = errlineNo + 1 >= noOfLines - 1 ? noOfLines : errlineNo + 2;
-                    rl.source_lines = scriptLines.slice(stLineNo++, enLineNo).map(ln => {
-                        return {
-                            line: stLineNo++,
-                            source: ln,
-                            erClass: stLineNo - 2 == errlineNo ? "error" : ""
-                        };
-                    });
-                });
-
-                if (global.debug)
-                    console.log("Code smells count for (" + scriptFName + ") :: " + thisFileResults.errorCount);
-                reviewResultsList.push(thisFileResults);
+                const scriptPayload = await _getFilePayload(xmlPayload, scriptClass, scriptFName);
+                filesPayloadList.push(scriptPayload);
             } //}));
 
-            const completeResultsObj = {
-                reportRunAt: new Date(),
-                instanceName: instance.getInstanceName(),
-                instanceURL: instance.getFullURL,
-                userName: instance.getUserName(),
-                results: reviewResultsList
-            };
+            let reviewResultsList = getReviewsForFilePayloads(filesPayloadList);
 
-            // handle reviewResults in a separate template
-            // console.dir(completeResultsObj);
-            const htmlFilePath = resultsUtil.saveResultsToHTMLFile(completeResultsObj);
-            if (!htmlFilePath) throw new Error("Error generating HTML file");
-
-            openURLUtil.open("file://" + htmlFilePath);
+            displayResults(reviewResultsList);
         } catch (error) {
             console.error("Oops!! Something went wrong. Failed to parse the update set files");
+            if (global.debug) console.error(error);
             process.exit(1);
         }
     };
@@ -163,71 +221,15 @@ module.exports = (function() {
         }
 
         let reviewResultsList = [];
-
         try {
-            //TODO :: change to functional approach
-            //let reviewResults = await Promise.all(filesData.map(async (fileData) => {
-            for (let i = 0; i < filesData.length; i++) {
-                let scriptPayload = filesData[i];
-                const script = scriptPayload.script;
-                const scriptFName = scriptPayload.sys_name;
-                //get matching rules for record
-                const rules = await ruleHelper.getAllRulesForRecord(scriptPayload);
-                //console.dir(rules);
+            let reviewResultsList = getReviewsForFilePayloads(filesData);
 
-                /******************************************************
-                ********             REVIEW FILE               ********
-                *******************************************************/
-                let _results = reviewFile(script, rules, scriptFName);
-                /******************************************************/
+            await appendFilesSource(reviewResultsList);
 
-                //Code smells
-                if (!_results || _results.length <= 0) return [];
-
-                let thisFileResults = _results[0];
-                thisFileResults.fileName = scriptFName;
-                thisFileResults.fileSysId = scriptPayload.sys_id;
-                thisFileResults.updatedBy = scriptPayload.sys_updated_by;
-                thisFileResults.class = scriptPayload.sys_class_name;
-                thisFileResults.type = util.getTypeByClass(scriptPayload.sys_class_name);
-
-                const scriptLines = script.split("\n");
-                const noOfLines = scriptLines.length;
-                thisFileResults.messages.forEach(rl => {
-                    const errlineNo = rl.line - 1;
-                    let stLineNo = errlineNo - 1 <= 0 ? 0 : errlineNo - 1;
-                    let enLineNo = errlineNo + 1 >= noOfLines - 1 ? noOfLines : errlineNo + 2;
-                    rl.source_lines = scriptLines.slice(stLineNo++, enLineNo).map(ln => {
-                        return {
-                            line: stLineNo++,
-                            source: ln,
-                            erClass: stLineNo - 2 == errlineNo ? "error" : ""
-                        };
-                    });
-                });
-
-                //console.log("Code smells count for (" + scriptFName + ") :: " + thisFileResults.errorCount);
-                reviewResultsList.push(thisFileResults);
-            } //}));
-
-            const completeResultsObj = {
-                reportRunAt: new Date(),
-                instanceName: instance.getInstanceName(),
-                instanceURL: instance.getFullURL,
-                userName: instance.getUserName(),
-                results: reviewResultsList
-            };
-
-            if (saveResultsToHTMLFile) {
-                // handle reviewResults in a separate template
-                const htmlFilePath = resultsUtil.saveResultsToHTMLFile(completeResultsObj);
-                if (!htmlFilePath) throw new Error("Error generating HTML file");
-                openURLUtil.open("file://" + htmlFilePath);
-            } else {
-                // console.dir(completeResultsObj);
-            }
+            displayResults(reviewResultsList);
         } catch (error) {
             console.error("Oops!! Something went wrong. Failed to parse the scoped app files");
+            if (global.debug) console.error(error);
             process.exit(1);
         }
     };
@@ -243,149 +245,23 @@ module.exports = (function() {
             return;
         }
 
-        let filesData = await nowHelper.fetchDeltaFiles(deltaDays);
-        if (!Array.isArray(filesData) || filesData.length == 0) {
+        let filesPayloadList = await nowHelper.fetchDeltaFiles(deltaDays);
+        if (!Array.isArray(filesPayloadList) || filesPayloadList.length == 0) {
             console.log("Oops! Could not find any files which are updates in last " + deltaDays + " days");
             return;
         }
 
-        let reviewResultsList = [];
-
         try {
-            //TODO :: change to functional approach
-            //let reviewResults = await Promise.all(filesData.map(async (fileData) => {
-            for (let i = 0; i < filesData.length; i++) {
-                let scriptPayload = filesData[i];
-                const script = scriptPayload.script;
-                const scriptFName = scriptPayload.sys_name;
-                //get matching rules for record
-                const rules = await ruleHelper.getAllRulesForRecord(scriptPayload);
-                //console.dir(rules);
-
-                /******************************************************
-                ********             REVIEW FILE               ********
-                *******************************************************/
-                let _results = reviewFile(script, rules, scriptFName);
-                /******************************************************/
-
-                //Code smells
-                if (!_results || _results.length <= 0) return [];
-
-                let thisFileResults = _results[0];
-                thisFileResults.fileName = scriptFName;
-                thisFileResults.fileSysId = scriptPayload.sys_id;
-                thisFileResults.updatedBy = scriptPayload.sys_updated_by;
-                thisFileResults.class = scriptPayload.sys_class_name;
-                thisFileResults.type = util.getTypeByClass(scriptPayload.sys_class_name);
-
-                const scriptLines = script.split("\n");
-                const noOfLines = scriptLines.length;
-                thisFileResults.messages.forEach(rl => {
-                    const errlineNo = rl.line - 1;
-                    let stLineNo = errlineNo - 1 <= 0 ? 0 : errlineNo - 1;
-                    let enLineNo = errlineNo + 1 >= noOfLines - 1 ? noOfLines : errlineNo + 2;
-                    rl.source_lines = scriptLines.slice(stLineNo++, enLineNo).map(ln => {
-                        return {
-                            line: stLineNo++,
-                            source: ln,
-                            erClass: stLineNo - 2 == errlineNo ? "error" : ""
-                        };
-                    });
-                });
-
-                //console.log("Code smells count for (" + scriptFName + ") :: " + thisFileResults.errorCount);
-                reviewResultsList.push(thisFileResults);
-            } //}));
-
-            const completeResultsObj = {
-                reportRunAt: new Date(),
-                instanceName: instance.getInstanceName(),
-                instanceURL: instance.getFullURL,
-                userName: instance.getUserName(),
-                results: reviewResultsList
-            };
+            let reviewResultsList = getReviewsForFilePayloads(filesPayloadList);
 
             await appendFilesSource(reviewResultsList);
 
-            if (global.json) {
-                const _results = [];
-                completeResultsObj.results.forEach(result => {
-                    const _result = {};
-                    _result.instance = completeResultsObj.instanceName;
-                    _result.file = {
-                        sysid: result.fileSysId,
-                        type: result.class,
-                        name: result.fileName
-                    };
-                    _result.reviews = result.messages
-                        .filter(reviewObj => {
-                            return global.showAllFindings ? true : reviewObj.developer != "UNKNOWN";
-                        })
-                        .map(reviewObj => {
-                            return {
-                                line: reviewObj.line,
-                                ruleid: reviewObj.ruleId,
-                                message: reviewObj.message,
-                                developer: reviewObj.developer,
-                                error_level: reviewObj.severity == 2 ? "error" : "warning" //TODO
-                            };
-                        });
-                    _results.push(_result);
-                });
-                console.log(JSON.stringify(_results));
-            } else {
-                //Show in browser
-                completeResultsObj.results.forEach(result => {
-                    result.messages = result.messages.filter(reviewObj => {
-                        return global.showAllFindings ? true : reviewObj.developer != "UNKNOWN";
-                    });
-                });
-
-                const htmlFilePath = resultsUtil.saveResultsToHTMLFile(completeResultsObj);
-                if (!htmlFilePath) throw new Error("Error generating HTML file");
-                openURLUtil.open("file://" + htmlFilePath);
-            }
+            displayResults(reviewResultsList);
         } catch (error) {
-            console.error("Oops!! Something went wrong. Failed to parse files");
+            console.error("Oops!! Something went wrong. Failed to review files");
+            if (global.debug) console.log(error);
             process.exit(1);
         }
-    };
-
-    const appendFilesSource = async function(reviewResults) {
-        if (!Array.isArray(reviewResults)) return;
-
-        const filesList = reviewResults.map(file => {
-            return { fileType: file.class, fileSysId: file.fileSysId };
-        });
-        try {
-            var devTags = await nowHelper.fetchMultipleFileTags(filesList);
-            if (!devTags) throw new Error("DEBUG: Could not get dev tags");
-        } catch (error) {
-            console.log(error);
-            return;
-        }
-
-        Object.keys(devTags).forEach(fileId => {
-            const reviewDataObj = reviewResults.find(_file => _file.fileSysId == fileId);
-            reviewDataObj.messages.forEach(rl => {
-                const thisTagObj = devTags[fileId];
-                // ex - {"shyam":[15,16,17,4,7,10],"chaitanya":[8,9,13,14],"anil.akula":[5,6],"admin.readonly":[3,11], "UNKNOWN": [2,1,23,22]}
-                Object.entries(thisTagObj).forEach(entry => {
-                    if (entry[1].indexOf(rl.line) >= 0) rl.developer = entry[0];
-                });
-                if (!rl.developer) rl.developer = "UNKNOWN";
-            });
-        });
-    };
-
-    const reviewFileWithPayloadObj = function(payloadObj) {
-        const fileName = payloadObj.sys_name;
-        const script = payloadObj.script;
-        // get matching rules for record
-        const rules = ruleHelper.getAllRulesForRecord(payloadObj);
-
-        //review file
-        reviewFile(script, rules, fileName);
     };
 
     const reviewFiles = async function(filesObjArr) {
@@ -396,102 +272,72 @@ module.exports = (function() {
 
         try {
             //TODO :: change to functional approach
-            //let reviewResults = await Promise.all(filesData.map(async (fileData) => {
+            //let reviewResults = await Promise.all(filesObjArr.map(async (fileMetaData) => {
             for (let i = 0; i < filesObjArr.length; i++) {
                 const fileMetaData = filesObjArr[i];
                 if (!fileMetaData.sys_id || !fileMetaData.type) continue;
 
                 const scriptPayload = await nowHelper.fetchSNFile(fileMetaData.type, fileMetaData.sys_id);
 
-                const script = scriptPayload.script;
-                const scriptFName = scriptPayload.sys_name;
-                //get matching rules for record
-                const rules = await ruleHelper.getAllRulesForRecord(scriptPayload);
-                //console.dir(rules);
+                if (!scriptPayload) continue;
 
-                /******************************************************
-                ********             REVIEW FILE               ********
-                *******************************************************/
-                let _results = reviewFile(script, rules, scriptFName);
-                /******************************************************/
+                let fileResults = reviewFileWithPayloadObj(scriptPayload);
 
-                //Code smells
-                if (!_results || _results.length <= 0) return [];
-
-                let thisFileResults = _results[0];
-                thisFileResults.fileName = scriptFName;
-                thisFileResults.fileSysId = scriptPayload.sys_id;
-                thisFileResults.updatedBy = scriptPayload.sys_updated_by;
-                thisFileResults.class = scriptPayload.sys_class_name;
-                thisFileResults.type = util.getTypeByClass(scriptPayload.sys_class_name);
-
-                const scriptLines = script.split("\n");
-                const noOfLines = scriptLines.length;
-                thisFileResults.messages.forEach(rl => {
-                    const errlineNo = rl.line - 1;
-                    let stLineNo = errlineNo - 1 <= 0 ? 0 : errlineNo - 1;
-                    let enLineNo = errlineNo + 1 >= noOfLines - 1 ? noOfLines : errlineNo + 2;
-                    rl.source_lines = scriptLines.slice(stLineNo++, enLineNo).map(ln => {
-                        return {
-                            line: stLineNo++,
-                            source: ln,
-                            erClass: stLineNo - 2 == errlineNo ? "error" : ""
-                        };
-                    });
-                });
-
-                //console.log("Code smells count for (" + scriptFName + ") :: " + thisFileResults.errorCount);
-                reviewResultsList.push(thisFileResults);
+                reviewResultsList.push(fileResults);
             } //}));
-
-            const completeResultsObj = {
-                reportRunAt: new Date(),
-                instanceName: instance.getInstanceName(),
-                instanceURL: instance.getFullURL,
-                userName: instance.getUserName(),
-                results: reviewResultsList
-            };
 
             await appendFilesSource(reviewResultsList);
 
-            if (global.json) {
-                const _results = [];
-                completeResultsObj.results.forEach(result => {
-                    const _result = {};
-                    _result.instance = completeResultsObj.instanceName;
-                    _result.file = {
-                        sysid: result.fileSysId,
-                        type: result.class,
-                        name: result.fileName
-                    };
-                    _result.reviews = result.messages
-                        .filter(reviewObj => {
-                            console.log("RESULT : (" + reviewObj.developer + ")", reviewObj.developer !== "UNKNOWN");
-
-                            return global.showAllFindings ? true : reviewObj.developer != "UNKNOWN";
-                        })
-                        .map(reviewObj => {
-                            return {
-                                line: reviewObj.line,
-                                ruleid: reviewObj.ruleId,
-                                message: reviewObj.message,
-                                developer: reviewObj.developer,
-                                error_level: reviewObj.severity == 2 ? "error" : "warning" //TODO
-                            };
-                        });
-                    _results.push(_result);
-                });
-                console.log(JSON.stringify(_results));
-            } else {
-                //Show in browser
-                const htmlFilePath = resultsUtil.saveResultsToHTMLFile(completeResultsObj);
-                if (!htmlFilePath) throw new Error("Error generating HTML file");
-                openURLUtil.open("file://" + htmlFilePath);
-            }
+            displayResults(reviewResultsList);
         } catch (error) {
             console.error("Oops!! Something went wrong. Failed to parse files");
             process.exit(1);
         }
+    };
+
+    const reviewFileWithPayloadObj = function(scriptPayload) {
+        if (!scriptPayload) return;
+
+        const script = scriptPayload.script;
+        const scriptFName = scriptPayload.sys_name || scriptPayload.name;
+        //get matching rules for record
+        const rules = ruleHelper.getAllRulesForRecord(scriptPayload);
+        //console.dir(rules);
+
+        /******************************************************
+        ********             REVIEW FILE               ********
+        *******************************************************/
+        let _results = reviewFile(script, rules, scriptFName);
+        /******************************************************/
+
+        //Code smells
+        if (!_results || _results.length <= 0) return [];
+
+        let fileResults = _results[0];
+        fileResults.fileName = scriptFName;
+        fileResults.fileSysId = scriptPayload.sys_id;
+        fileResults.updatedBy = scriptPayload.sys_updated_by;
+        fileResults.class = scriptPayload.sys_class_name || scriptPayload.sys_source_table;
+        fileResults.type = util.getTypeByClass(fileResults.class);
+
+        const scriptLines = script.split("\n");
+        const noOfLines = scriptLines.length;
+        fileResults.messages.forEach(rl => {
+            const errlineNo = rl.line - 1;
+            let stLineNo = errlineNo - 1 <= 0 ? 0 : errlineNo - 1;
+            let enLineNo = errlineNo + 1 >= noOfLines - 1 ? noOfLines : errlineNo + 2;
+            rl.source_lines = scriptLines.slice(stLineNo++, enLineNo).map(ln => {
+                return {
+                    line: stLineNo++,
+                    source: ln,
+                    erClass: stLineNo - 2 == errlineNo ? "error" : ""
+                };
+            });
+        });
+
+        if (global.debug) console.log("Code smells count for (" + scriptFName + ") :: " + fileResults.errorCount);
+
+        return fileResults;
     };
 
     const reviewFile = function(script, rules, fileName) {
@@ -509,6 +355,12 @@ module.exports = (function() {
         var report = cli.executeOnText(script, fileName); //TODO : fileName
 
         return report.results || [];
+    };
+
+    const getReviewsForFilePayloads = function(payloadsList) {
+        if (!Array.isArray(payloadsList)) return [];
+
+        return payloadsList.map(reviewFileWithPayloadObj);
     };
 
     return {

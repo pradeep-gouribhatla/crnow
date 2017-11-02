@@ -41,7 +41,7 @@ const RCR_CONSTANTS = {
 
     //update set data
     update_set_api: "/api/now/v1/table/sys_update_xml",
-    update_set_api_query: "update_set=",
+    update_set_api_query: "action!=DELETE^update_set=",
     update_set_api_field_params: "type,name,target_name,payload",
 
     //scoped app api

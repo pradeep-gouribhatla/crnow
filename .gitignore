@@ -70,6 +70,7 @@ node_modules
 
 config/instance.xml
 
+notes.me
 test.js
 test1.js
 # End of https://www.gitignore.io/api/macos

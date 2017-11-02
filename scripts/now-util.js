@@ -241,15 +241,14 @@ module.exports = (function() {
         });
 
         //console.dir(res);
-
         if (res && res.status == 200) {
             if (!res.data || !res.data.result) {
-                console.log("Oops! No data found in the script file.");
+                console.log("Oops! No data found while fetching dev tags");
                 return;
             }
             return res.data.result;
         } else {
-            throw new Error("Oops!! Failed to fetch tags -> " + fileType + ":" + fileSysID);
+            throw new Error("Oops!! Failed to fetch dev tags");
         }
     };
 
@@ -270,8 +269,37 @@ module.exports = (function() {
             }
             return res.data.result;
         } else {
-            throw new Error("Oops!! Failed to fetch tags -> " + fileType + ":" + fileSysID);
+            throw new Error("Oops!! Failed to fetch tags, File sys id " + fileType + " : " + fileSysID);
         }
+    };
+
+    const fetchFileVersions = async function(filesMapList) {
+        if (!Array.isArray(filesMapList)) return;
+
+        // var filesMap = filesMapList.reduce((filesMap, fileObj) => {
+        //     if (filesMap[fileObj.fileType]) filesMap[fileObj.fileType].push(fileObj.fileSysId);
+        //     else filesMap[fileObj.fileType] = [fileObj.fileSysId];
+        //     return filesMap;
+        // }, {});
+
+        // const insHttp = instance.getThisInstanceHttp();
+        // const res = await insHttp.request({
+        //     method: "POST",
+        //     url: instance.getFullURL() + RCR.file_tags_api,
+        //     data: JSON.stringify(filesList)
+        // });
+
+        // //console.dir(res);
+
+        // if (res && res.status == 200) {
+        //     if (!res.data || !res.data.result) {
+        //         console.log("Oops! No data found while fetching versions info");
+        //         return;
+        //     }
+        //     return res.data.result;
+        // } else {
+        //     throw new Error("Oops!! Failed to fetch files version Ids");
+        // }
     };
 
     return {
@@ -283,6 +311,7 @@ module.exports = (function() {
         fetchDeltaFilesByType,
         fetchAndSaveDeltaFiles,
         fetchSNFile,
+        fetchFileVersions,
         fetchMultipleFileTags,
         fetchFileTags
     };
