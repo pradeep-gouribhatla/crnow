@@ -25,10 +25,10 @@ const RCR_CONSTANTS = {
     snow_rules_repo: "https://github.com/pradeep-gouribhatla/snow-rules",
 
     //scoped app configurtion
-    scoped_app_name: "x_snc_sn_rcr_v1",
-    scoped_app_search_query: "/api/now/table/sys_app?sysparm_query=scope%3Dx_snc_sn_rcr_v1&sysparm_limit=1",
+    scoped_app_name: "x_snc_sn_rcr_probe",
+    scoped_app_search_query: "/api/now/table/sys_app?sysparm_query=scope%3Dx_snc_sn_rcr_probe&sysparm_limit=1",
     //rcr_scoped_git_repo: "https://github.com/pradeep-gouribhatla/sn_rcr_v1",
-    rcr_scoped_git_repo: "https://github.com/SN-ITLabs/RcR-CLI",
+    rcr_scoped_git_repo: "https://github.com/SN-ITLabs/RcR-Probe",
     scoped_app_api_url: "/api/sn_devstudio/v1/vcs/apps",
     scoped_app_status_uri: "/api/sn_devstudio/v1/vcs/transactions/",
 
@@ -56,7 +56,7 @@ const RCR_CONSTANTS = {
     delta_files_api_field_params: "name,type,target_name,payload",
 
     //tags for file
-    file_tags_api: "/api/x_snc_sn_rcr_v1/gettags/process",
+    file_tags_api: "/api/x_snc_sn_rcr_probe/gettags/process",
 
     //results
     default_results_template: "/templates/results.hbs",
