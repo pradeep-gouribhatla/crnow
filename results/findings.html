@@ -24,22 +24,22 @@
         <div class="files--container">
             <h3>RCR CLI REPORT</h2>
                 <p>Instance :
-                    <a href="https://surfdev3.service-now.com">https://surfdev3.service-now.com</a>
+                    <a href="https://surfdev5.service-now.com">https://surfdev5.service-now.com</a>
                 </p>
-                <p>Report generated at : Fri Oct 27 2017 21:57:09 GMT+0530 (IST) </p>
+                <p>Report generated at : Wed Nov 15 2017 15:50:43 GMT+0530 (IST) </p>
                 <p>Executed by user : pradeep.gouribhatla</p>
                 <hr> 
                 <div class="file--container">
                     <h6>File Name :
-                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=2ddd1429db4e074423f75e77dc961984" target="_blank">
-                            PPAutocreateDeploymentRegUtil
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=18f394384f581e00670b95bd0210c76c" target="_blank">
+                            LMSUpdateRelatedObjects
                         </a>
                         [Script Include]
                     </h6>
  
-                    <p>Error count: 3 </p>
+                    <p>Error count: 1 </p>
                     <p>Warning count: 0 </p>
-                    <p>File last modified by : siddharth.jadon</p>
+                    <p>File last modified by : yamuna.subramanian</p>
                     <table class="table table-hover table-inverse">
                         <thead>
                             <tr>
@@ -52,28 +52,929 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="x--col-2">Line 1:1</td>
-                                <td class="x--col-2">_SNOW0012</td>
-                                <td class="x--col-3"> function declaration not found</td>
-                                <td class="x--col-3">siddharth.jadon</td>
+                                <td class="x--col-2">Line 4:28</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
                                 <td class="x--col-5 code">
-                                    <span class="error">
-                                        [1]: var PPAutocreateDeploymentRegUtil &#x3D; Class.create();
+                                    <span class="">
+                                        [3]: 
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [4]:     initialize: function() {
                                     </span>
                                     <br>                                     <span class="">
-                                        [2]: PPAutocreateDeploymentRegUtil.prototype &#x3D; {
+                                        [5]: 	},
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=1da12d3ddbed83803f377bedae9619f6" target="_blank">
+                            CPQQuoteHandler
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 2 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : shilpa.rajashekara</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 282:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [281]: 			var errorMessage &#x3D; &#x27;&#x27;;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [282]: 			gs.info(&#x27;Response JSON: &#x27; + JSON.stringify(responseJSON));
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [283]: 			
                                     </span>
                                     <br> 
                                 </td>
                             </tr>
                             <tr>
+                                <td class="x--col-2">Line 355:35</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [354]: 			quoteGr.contract_type &#x3D; quoteJson.contractType;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [355]: 			quoteGr.link_to_apttus_quote &#x3D; &#x27;fbed44d9db194b4089a4ff9aae9619aa&#x27;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [356]: 			quoteGr.master_quote &#x3D; quoteJson.isPrimary;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=248a9e3fdb4d83403f377bedae96193a" target="_blank">
+                            CPQQuoteUtilAjax
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : shilpa.rajashekara</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 22:12</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [21]: 		}
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [22]: 		catch(ex){
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [23]: 			
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=2d051c40db9e87c03f377bedae96199e" target="_blank">
+                            CPQAgreementHandler
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 13 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : nisha.agarwal</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 15:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [14]: 		try{
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [15]: 			gs.info(&#x27;in createAgreementProcessor &#x27; + opportunityGr.sys_id + &#x27; reasonComments &#x27; + reasonComments);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [16]: 			var processorNumber &#x3D; CPQAgreementHandler.CREATE_AGREEMENT_PROCESSOR;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 25:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [24]: 				var id &#x3D; gs.generateGUID();
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [25]: 				gs.info(&#x27;guid id &#x27; + id);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [26]: 			
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 30:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [29]: 				var queueGr &#x3D; this.bulkHandler.addToQueueWithRequestJSON(id,resultObj,processorNumber,true);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [30]: 				gs.info(&#x27;queueGr sys_id &#x27; + queueGr.sys_id);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [31]: 				//Step 2: Process Bulk Request and get Response
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 85:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [84]: 		try{
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [85]: 			gs.info(&#x27;in here nishaaaa&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [86]: 			var output &#x3D; [];
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 92:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [91]: 			var insertAction &#x3D; false;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [92]: 			gs.info(&#x27;processorNumber &#x27; + processorNumber);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [93]: 			var agreementGr &#x3D; new GlideRecord(CPQAgreementUtilCreate.AGREEMENT_TABLE);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 97:1</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [96]: 			agreementGr.query();
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [97]: gs.info(&#x27;processorNumber agreementGr &#x27; + agreementGr.getRowCount());
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [98]: 			while(agreementGr.next()){
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 100:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [99]: 				//var resultObj &#x3D; this.buildCancelAgreementGr(agreementGr.sys_id,opportunityGr,&#x27;&#x27;,insertAction);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [100]: 			gs.info(&#x27;processorNumber agreementGr sysid &#x27; + agreementGr.sys_id + &#x27; &#x27; + agreementGr);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [101]: 				var queueGr &#x3D; this.bulkHandler.addToQueueWithRequestJSON(agreementGr.sys_id,agreementGr,processorNumber,true);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 102:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [101]: 				var queueGr &#x3D; this.bulkHandler.addToQueueWithRequestJSON(agreementGr.sys_id,agreementGr,processorNumber,true);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [102]: 				gs.info(&#x27;processorNumber queueGr &#x27; + queueGr.getRowCount());
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [103]: 				
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 165:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [164]: 		try{
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [165]: 			gs.info(&#x27;agreementJson nisha &#x27; + JSON.stringify(agreementJson));
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [166]: 			var agreementGr &#x3D; new GlideRecord(CPQAgreementUtilCreate.AGREEMENT_TABLE);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 172:35</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [171]: 			agreementGr.type &#x3D; agreementJson.type;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [172]: 			agreementGr.apttus_agreement &#x3D; &#x27;cb2b55d9db79030089a4ff9aae961939&#x27;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [173]: 			agreementGr.status &#x3D; &#x27;Request&#x27;;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 187:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [186]: 				var territorySysId &#x3D; this._getSurfSysID(CPQAgreementUtilCreate.SALES_TERRITORY_TABLE,&#x27;u_mdm_xref_id&#x3D;&#x27; + agreementJson.territoryID);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [187]: 				gs.info(&#x27;accountSysId territorySysId &#x27; + territorySysId);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [188]: 				agreementGr.approval_territory &#x3D; territorySysId + &#x27;&#x27;;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 205:1</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [204]: 				surfGr.query();
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [205]: gs.info(surfGr.getRowCount() + &quot; surfGr.getRowCount() &quot; + query + &#x27; &#x27; + table);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [206]: 				if(surfGr.next()){
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 207:6</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [206]: 				if(surfGr.next()){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [207]: 					gs.info(&#x27;surfGr.getRowCount &#x27; + surfGr.sys_id);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [208]: 					return surfGr.sys_id;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=42bccd7bdb5e830089a4ff9aae9619b1" target="_blank">
+                            CPQWODocumentHandler
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 4 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : mrigank.gupta</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 9:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [8]:             var restObj &#x3D; this._getDetails(processGr);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [9]: 			gs.info(&#x27;Rest Msg : &#x27; + restObj.restMessage + &#x27;Client ID: &#x27; + restObj.clientId);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [10]:             var payload &#x3D; {};
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 100:25</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [99]:     },
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [100]:     callget: function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [101]: 
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 103:28</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [102]:     },
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [103]:     calldelete: function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [104]: 
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 106:33</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [105]:     },
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [106]:     callBatchdelete: function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [107]: 
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=462afc1adbcd83003f377bedae961998" target="_blank">
+                            SLSCPQUtil
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : Rohan.Chandarana</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 3:25</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [2]: SLSCPQUtil.prototype &#x3D; {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [3]: 	initialize: function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [4]: 	},
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=6726d44adb500f003f377bedae96190c" target="_blank">
+                            CPQIntegrationConstants
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : shilpa.rajashekara</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
                                 <td class="x--col-2">Line 3:28</td>
                                 <td class="x--col-2">_SNOW0014</td>
                                 <td class="x--col-3">Scripts should not have an empty blocks defined </td>
-                                <td class="x--col-3">siddharth.jadon</td>
+                                <td class="x--col-3"></td>
                                 <td class="x--col-5 code">
                                     <span class="">
-                                        [2]: PPAutocreateDeploymentRegUtil.prototype &#x3D; {
+                                        [2]: CPQIntegrationConstants.prototype &#x3D; {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [3]:     initialize: function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [4]:     },
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=707ed6fbd4a125006f71c9dad778b502" target="_blank">
+                            PSResourcePlan
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 6 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : ranjeeta.sunkad</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 678:58</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [677]:                 ap.u_shared_plan &#x3D; gr.u_shared;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [678]:                 if (gr.u_shared) ap.u_resource_company &#x3D; &#x27;92f199bd0a0a3cba010e1fcc114bf137&#x27;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [679]: 
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 736:45</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [735]:                     ap.u_shared_plan &#x3D; gr.u_shared;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [736]:                     ap.u_resource_company &#x3D; &#x27;92f199bd0a0a3cba010e1fcc114bf137&#x27;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [737]:                     ap.u_resource_role &#x3D; gr.u_resource_plan_role;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 783:30</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [782]: 					ap.u_shared_plan &#x3D; gr.u_shared;		
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [783]: 					ap.u_resource_company &#x3D; &#x27;92f199bd0a0a3cba010e1fcc114bf137&#x27;;		
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [784]: 					ap.u_resource_role &#x3D; gr.u_resource_plan_role;		
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 821:45</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [820]:                     ap.u_shared_plan &#x3D; gr.u_shared;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [821]:                     ap.u_resource_company &#x3D; &#x27;92f199bd0a0a3cba010e1fcc114bf137&#x27;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [822]:                     ap.u_resource_role &#x3D; gr.u_resource_plan_role;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 857:49</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [856]:                         ap.u_shared_plan &#x3D; gr.u_shared;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [857]:                         ap.u_resource_company &#x3D; &#x27;92f199bd0a0a3cba010e1fcc114bf137&#x27;; //ServiceNow
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [858]:                         ap.u_resource_role &#x3D; gr.u_resource_plan_role;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 1399:28</td>
+                                <td class="x--col-2">_SNOW0013</td>
+                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [1398]:         // Query for a matching skill record
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [1399]:         var encodedQuery &#x3D; &quot;u_skill&#x3D;1cd1fe8598f471004ece9122b67c3b2d^active&#x3D;true^u_employee_bio.u_user&#x3D;&quot; + this.resourcePlan.assigned_to + &quot;^u_expiration_date&gt;javascript:gs.daysAgoEnd(0)&quot;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [1400]:         var skillRecord &#x3D; new GlideRecord(&#x27;cmn_skill&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=8e077f584d56c10006ffcaf70b76825a" target="_blank">
+                            SSALineItemBatchUpdateUtil
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : Rohan.Chandarana</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 62:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [61]: 		var test &#x3D;this.performBatchUpdateAndRollup(false);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [62]: 		gs.log(&#x27;GK: **** return value&#x27;+test,&#x27;keerthana&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [63]: 		this.debug.log(&#x27;GK: **** done with performBatchUpdateAndRollup&#x27;+test,&#x27;keerthana&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=90a2ccc2db5a8bc089a4ff9aae961998" target="_blank">
+                            PSCPQUtil
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : mrigank.gupta</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 56:3</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [55]: 	updateWOWithDocumentLink : function(agreementID, documentID){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [56]: 		gs.log(&quot;agreemnt is : &quot;+ agreementID + &quot; | document : &quot;+ documentID);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [57]: 		var gr &#x3D; new GlideRecord(&#x27;u_work_order&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=97cfbdffdb4e47c03f377bedae9619fa" target="_blank">
+                            CPQAgreementUtil
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 4 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : nisha.agarwal</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 21:5</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [20]: CPQAgreementUtil.postActivation &#x3D; function(agreementId){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [21]: 	try{
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [22]: 		//Step 1: Trigger sync to Hi Explicitly
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 40:11</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [39]: 	}
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [40]: 	catch(ex){
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [41]: 		
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 46:28</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [45]: CPQAgreementUtil.prototype &#x3D; {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [46]:     initialize: function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [47]:     },
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 68:13</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [67]: 			
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [68]: 		}catch(ex){
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [69]: 			
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=98fcf30bdb8d4b0089a4ff9aae961922" target="_blank">
+                            SLS_SyncOppFromMasterQuote
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 2 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : shilpa.rajashekara</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 3:28</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [2]: SLS_SyncOppFromMasterQuote.prototype &#x3D; {
                                     </span>
                                     <br>                                     <span class="error">
                                         [3]:     initialize: function() {
@@ -85,19 +986,19 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="x--col-2">Line 10:77</td>
-                                <td class="x--col-2">_SNOW0013</td>
-                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
-                                <td class="x--col-3">siddharth.jadon</td>
+                                <td class="x--col-2">Line 33:12</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
                                 <td class="x--col-5 code">
                                     <span class="">
-                                        [9]: 		this._log.debug(&#x27;PPAutocreateDeploymentRegUtil&#x27;, this.type, &#x27;createDeploymentRegForOpportunity&#x27;, &#x27;createDeploymentRegForOpportunity begin&#x27; );
+                                        [32]: 
                                     </span>
                                     <br>                                     <span class="error">
-                                        [10]: 		var gr &#x3D; new GlideAggregate(&#x27;sales_opportunity_item&#x27;);	gr.addEncodedQuery(&#x27;opportunity.stage&#x3D;closed_won^flags&#x3D;2172ac3a13ace680a5e739fed144b02e^opportunity.u_implementation_partnerISNOTEMPTY^opportunity.u_implementation_partner.partner_type&#x3D;Partner^opportunity.typeINSuperseding order,Renewal and Upsell,new_business,Renewal,License Upsell,Module Upsell&#x27;); 
+                                        [33]: 		}catch(e){
                                     </span>
                                     <br>                                     <span class="">
-                                        [11]: 		gr.groupBy(&#x27;opportunity&#x27;);
+                                        [34]: 			
                                     </span>
                                     <br> 
                                 </td>
@@ -108,15 +1009,15 @@
 
                 <div class="file--container">
                     <h6>File Name :
-                        <a href="https://surfdev3.service-now.com/sys_script_include.do?sys_id=f16e6bdadbed074023f75e77dc9619ef" target="_blank">
-                            HRORequestHelper
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=a34d78c7db2a3ec00d0e540adc9619cd" target="_blank">
+                            SalesCentralCustomerSectionSearch
                         </a>
                         [Script Include]
                     </h6>
  
-                    <p>Error count: 14 </p>
+                    <p>Error count: 4 </p>
                     <p>Warning count: 0 </p>
-                    <p>File last modified by : pratul.agarwal</p>
+                    <p>File last modified by : yamuna.subramanian</p>
                     <table class="table table-hover table-inverse">
                         <thead>
                             <tr>
@@ -129,199 +1030,215 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="x--col-2">Line 14:4</td>
+                                <td class="x--col-2">Line 27:13</td>
                                 <td class="x--col-2">_SNOW0005</td>
                                 <td class="x--col-3">Service Now Log : gs.info should not be used</td>
-                                <td class="x--col-3">sameer.nalla</td>
+                                <td class="x--col-3"></td>
                                 <td class="x--col-5 code">
                                     <span class="">
-                                        [13]: 			hr_onboarding.subject_person  &#x3D; current.user+&#x27;&#x27;;
+                                        [26]:         } catch (e) {
                                     </span>
                                     <br>                                     <span class="error">
-                                        [14]: 			gs.info(&quot;Creating Request Onboarding &quot;+current.user.name);
+                                        [27]:             gs.info(&#x27;persisCustomerDataForAllUsersByWcc - Exception&#x27; + e, &#x27;SalesCentralCustomerSection&#x27;);
                                     </span>
                                     <br>                                     <span class="">
-                                        [15]: 			hr_onboarding.company &#x3D; &#x27;4c5d24ac60d3054006ff177ed89caef0&#x27;;
+                                        [28]:         }
                                     </span>
                                     <br> 
                                 </td>
                             </tr>
                             <tr>
-                                <td class="x--col-2">Line 15:28</td>
-                                <td class="x--col-2">_SNOW0013</td>
-                                <td class="x--col-3"> don&#x27;t use sys_id in code</td>
-                                <td class="x--col-3">sameer.nalla</td>
-                                <td class="x--col-5 code">
-                                    <span class="">
-                                        [14]: 			gs.info(&quot;Creating Request Onboarding &quot;+current.user.name);
-                                    </span>
-                                    <br>                                     <span class="error">
-                                        [15]: 			hr_onboarding.company &#x3D; &#x27;4c5d24ac60d3054006ff177ed89caef0&#x27;;
-                                    </span>
-                                    <br>                                     <span class="">
-                                        [16]: 			//hr_onboarding.hr_profile &#x3D; current.sys_id;
-                                    </span>
-                                    <br> 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="x--col-2">Line 30:4</td>
+                                <td class="x--col-2">Line 79:13</td>
                                 <td class="x--col-2">_SNOW0005</td>
                                 <td class="x--col-3">Service Now Log : gs.info should not be used</td>
-                                <td class="x--col-3">sameer.nalla</td>
+                                <td class="x--col-3"></td>
                                 <td class="x--col-5 code">
                                     <span class="">
-                                        [29]: 			hr_onboarding.opened_for &#x3D; current.manager;
+                                        [78]:         } catch (e) {
                                     </span>
                                     <br>                                     <span class="error">
-                                        [30]: 			gs.info(&quot;Creating Request Onboarding opened for &quot;+current.manager.name);
+                                        [79]:             gs.info(&#x27;executeCustomerSectionWidget - Exception&#x27; + e, &#x27;SalesCentralCustomerSection&#x27;);
                                     </span>
                                     <br>                                     <span class="">
-                                        [31]: 			hr_onboarding.contact_type &#x3D; &#x27;other&#x27;;
+                                        [80]:         }
                                     </span>
                                     <br> 
                                 </td>
                             </tr>
                             <tr>
-                                <td class="x--col-2">Line 78:43</td>
+                                <td class="x--col-2">Line 122:13</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [121]:         } catch (e) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [122]:             gs.info(&#x27;buildCustomerSectionJson - Exception&#x27; + e, &#x27;SalesCentralCustomerSection&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [123]:         }
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 142:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [141]: 			catch(ex){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [142]: 				gs.info(&#x27;Error While Parsing Int in getOpportunityDetails&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [143]: 			}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=aaef9c37db4e07c03f377bedae961957" target="_blank">
+                            CPQAgreementUtilAjax
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 4 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : nisha.agarwal</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 10:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [9]: 		try{
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [10]: 			gs.info(&#x27;this.getParameter opportunitySys_id &#x27; + this.getParameter(&#x27;opportunitySys_id&#x27;));
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [11]: 			var opportunitySysId &#x3D; this.getParameter(&#x27;opportunitySys_id&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 19:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [18]: 				var canCreateAgreement &#x3D; canCreateAgree.canCreateMasterAgreement(opportunityGr);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [19]: 			gs.info(&#x27;canCreateAgreement &#x27; + canCreateAgreement);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [20]: 				if(canCreateAgreement &#x3D;&#x3D; false){
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 31:5</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [30]: 				var result &#x3D; agreementUtil.validateOpportunityDetails(opportunityGr);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [31]: 				gs.info(&#x27;result.response agreements &#x27; + result.response);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [32]: 				if(result.response &#x3D;&#x3D; true){
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 75:12</td>
                                 <td class="x--col-2">_SNOW0014</td>
                                 <td class="x--col-3">Scripts should not have an empty blocks defined </td>
-                                <td class="x--col-3">sameer.nalla</td>
+                                <td class="x--col-3"></td>
                                 <td class="x--col-5 code">
                                     <span class="">
-                                        [77]: 	
+                                        [74]: 		}
                                     </span>
                                     <br>                                     <span class="error">
-                                        [78]: 	createRehireCase: function(source,target){
+                                        [75]: 		catch(ex){
                                     </span>
                                     <br>                                     <span class="">
-                                        [79]: 		
+                                        [76]: 			
                                     </span>
                                     <br> 
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=b30008fadbae7ac00d0e540adc96190a" target="_blank">
+                            SalesCentralCustomerSection
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : yamuna.subramanian</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
                             <tr>
-                                <td class="x--col-2">Line 90:3</td>
-                                <td class="x--col-2">_SNOW0005</td>
-                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
-                                <td class="x--col-3">sameer.nalla</td>
-                                <td class="x--col-5 code">
-                                    <span class="">
-                                        [89]: 		hr_onboarding.query();
-                                    </span>
-                                    <br>                                     <span class="error">
-                                        [90]: 		gs.info(&quot;Duplicate OBC &quot;+current.user.name+&quot; hr_onboarding &quot;+hr_onboarding.getRowCount());
-                                    </span>
-                                    <br>                                     <span class="">
-                                        [91]: 		if(hr_onboarding.next()){
-                                    </span>
-                                    <br> 
-                                </td>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
                             </tr>
+                        </thead>
+                        <tbody>
                             <tr>
-                                <td class="x--col-2">Line 115:3</td>
-                                <td class="x--col-2">_SNOW0005</td>
-                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
-                                <td class="x--col-3">sameer.nalla</td>
-                                <td class="x--col-5 code">
-                                    <span class="">
-                                        [114]: 		
-                                    </span>
-                                    <br>                                     <span class="error">
-                                        [115]: 		gs.log(&quot;emp id&quot;+EmpID,&quot;AmitM&quot;);
-                                    </span>
-                                    <br>                                     <span class="">
-                                        [116]: 		var leReqIfAny &#x3D; new GlideRecord(&#x27;sn_hr_le_case&#x27;);
-                                    </span>
-                                    <br> 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="x--col-2">Line 118:40</td>
+                                <td class="x--col-2">Line 332:29</td>
                                 <td class="x--col-2">_SNOW0013</td>
                                 <td class="x--col-3"> don&#x27;t use sys_id in code</td>
-                                <td class="x--col-3">sameer.nalla</td>
+                                <td class="x--col-3"></td>
                                 <td class="x--col-5 code">
                                     <span class="">
-                                        [117]: 		leReqIfAny.addQuery(&#x27;subject_person&#x27;,hr_pr.user);
+                                        [331]: 									var optyLines &#x3D; new GlideRecord(&#x27;sales_opportunity_item&#x27;);
                                     </span>
                                     <br>                                     <span class="error">
-                                        [118]: 		leReqIfAny.addQuery(&#x27;topic_category&#x27;,&#x27;1e85491e53032200eb7c0a1806dc3449&#x27;);
+                                        [332]: 									var encodedString &#x3D;&#x27;^product.u_category&#x3D;0^quantity&gt;0^flagsNOT LIKEe74e1723d9567100656052706e3b2eba^flagsNOT LIKE38bc0a25605411c006ff177ed89caef5^u_price_reset_primary_lineISEMPTY&#x27;;
                                     </span>
                                     <br>                                     <span class="">
-                                        [119]: 		leReqIfAny.query();
-                                    </span>
-                                    <br> 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="x--col-2">Line 120:3</td>
-                                <td class="x--col-2">_SNOW0005</td>
-                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
-                                <td class="x--col-3">sameer.nalla</td>
-                                <td class="x--col-5 code">
-                                    <span class="">
-                                        [119]: 		leReqIfAny.query();
-                                    </span>
-                                    <br>                                     <span class="error">
-                                        [120]: 		gs.log(&quot;count &quot;+leReqIfAny.getRowCount(),&quot;AmitM&quot;);
-                                    </span>
-                                    <br>                                     <span class="">
-                                        [121]: 		gs.log(&quot;user&quot;+hr_pr.user,&quot;AmitM&quot;);
-                                    </span>
-                                    <br> 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="x--col-2">Line 121:3</td>
-                                <td class="x--col-2">_SNOW0005</td>
-                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
-                                <td class="x--col-3">sameer.nalla</td>
-                                <td class="x--col-5 code">
-                                    <span class="">
-                                        [120]: 		gs.log(&quot;count &quot;+leReqIfAny.getRowCount(),&quot;AmitM&quot;);
-                                    </span>
-                                    <br>                                     <span class="error">
-                                        [121]: 		gs.log(&quot;user&quot;+hr_pr.user,&quot;AmitM&quot;);
-                                    </span>
-                                    <br>                                     <span class="">
-                                        [122]: 		
-                                    </span>
-                                    <br> 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="x--col-2">Line 128:4</td>
-                                <td class="x--col-2">_SNOW0005</td>
-                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
-                                <td class="x--col-3">sameer.nalla</td>
-                                <td class="x--col-5 code">
-                                    <span class="">
-                                        [127]: 		while (leReqIfAny.next()){
-                                    </span>
-                                    <br>                                     <span class="error">
-                                        [128]: 			gs.log(&quot;state &quot;+leReqIfAny.state,&quot;AmitM&quot;);
-                                    </span>
-                                    <br>                                     <span class="">
-                                        [129]: 			if (leReqIfAny.state&#x3D;&#x3D;&#x27;1&#x27;  || leReqIfAny.state&#x3D;&#x3D;&#x27;18&#x27; || leReqIfAny.state&#x3D;&#x3D;&#x27;10&#x27;  || leReqIfAny.state&#x3D;&#x3D;&#x27;20&#x27;){
-                                    </span>
-                                    <br> 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="x--col-2">Line 130:5</td>
-                                <td class="x--col-2">_SNOW0005</td>
-                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
-                                <td class="x--col-3">sameer.nalla</td>
-                                <td class="x--col-5 code">
-                                    <span class="">
-                                        [129]: 			if (leReqIfAny.state&#x3D;&#x3D;&#x27;1&#x27;  || leReqIfAny.state&#x3D;&#x3D;&#x27;18&#x27; || leReqIfAny.state&#x3D;&#x3D;&#x27;10&#x27;  || leReqIfAny.state&#x3D;&#x3D;&#x27;20&#x27;){
-                                    </span>
-                                    <br>                                     <span class="error">
-                                        [130]: 				gs.log(&quot;ret&quot;,&quot;AmitM&quot;);
-                                    </span>
-                                    <br>                                     <span class="">
-                                        [131]: 				return;
+                                        [333]: 									optyLines.addEncodedQuery(encodedString);
                                     </span>
                                     <br> 
                                 </td>
@@ -332,15 +1249,701 @@
 
                 <div class="file--container">
                     <h6>File Name :
-                        <a href="https://surfdev3.service-now.com/sys_script.do?sys_id=6e906287db7d0b04e67256a8dc961906" target="_blank">
-                            ONB_UpdateParentCase
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=c6e1f7f7db8a72803d7958a8dc96196f" target="_blank">
+                            SalesAlertLibrary
                         </a>
-                        [Business Rule]
+                        [Script Include]
                     </h6>
  
                     <p>Error count: 1 </p>
                     <p>Warning count: 0 </p>
-                    <p>File last modified by : siddhartha.kadiyala</p>
+                    <p>File last modified by : sriharsha.yalamuri</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 227:21</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [226]:                 } catch (error) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [227]:                     gs.info(&#x27;Error!! &#x27; + error);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [228]:                 }
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=c9e6d808db688fc089a4ff9aae961941" target="_blank">
+                            CPQOutboundBatchHandler
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : yamuna.subramanian</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 133:8</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [132]: 						if(resultObj){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [133]: 							gs.info(&quot;resultObj resultObj&quot;+ JSON.stringify(resultObj));
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [134]: 							this._updateBatchResponse(batchGr,resultObj);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=ca1b2a3edb394f003f377bedae96196d" target="_blank">
+                            MDMAccountInboundIntegration
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 2 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : yamuna.subramanian</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 3:25</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [2]: MDMAccountInboundIntegration.prototype &#x3D; {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [3]: 	initialize: function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [4]: 	},
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 32:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.log should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [31]: 		}catch(e){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [32]: 			gs.log(&quot;Exception Occurred in checkandInsertAccountEntity&quot; + e.message);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [33]: 		}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=d442bb7bdb8a87c03f377bedae9619b4" target="_blank">
+                            CPQAgreementUtilCreate
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 2 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : nisha.agarwal</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 26:4</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [25]: 			var territoryResult &#x3D; this._validateSalesTerritory(opportunityGr);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [26]: 			gs.info(&#x27;accountResult.response &#x27; + accountResult.response + &#x27; territoryResult.response &#x27; + territoryResult.response);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [27]: 			if(accountResult.response &#x3D;&#x3D; false){
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 140:8</td>
+                                <td class="x--col-2">_SNOW0005</td>
+                                <td class="x--col-3">Service Now Log : gs.info should not be used</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [139]: 							var result &#x3D; this.agreementHandler.createAgreementProcessor(opportunityGr, reasons);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [140]: 							gs.info(&#x27;result agreement &#x27; + JSON.stringify(result));
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [141]: 							return result;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=d7431c3d13f51200daf95227d144b074" target="_blank">
+                            SalesAlertUtils
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : nisha.agarwal</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 3:25</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [2]: SalesAlertUtils.prototype &#x3D; {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [3]: 	initialize: function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [4]: 	},
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_include.do?sys_id=e190e004db680b403f377bedae9619b5" target="_blank">
+                            CPQOutboundProcessor
+                        </a>
+                        [Script Include]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : mrigank.gupta</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 3:28</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [2]: CPQOutboundProcessor.prototype &#x3D; {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [3]:     initialize: function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [4]:     },
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_client.do?sys_id=0fdc28d6a10dc10006fff67c7cf67538" target="_blank">
+                            SSA Opportunity Form
+                        </a>
+                        [Client Script]
+                    </h6>
+ 
+                    <p>Error count: 20 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : nisha.agarwal</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 21:13</td>
+                                <td class="x--col-2">_SNOW0001</td>
+                                <td class="x--col-3">Dont use document object for DOM manipulation</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [20]: function loadScript(src) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [21]: 	var head &#x3D; document.getElementsByTagName(&#x27;head&#x27;)[0];
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [22]: 	var script &#x3D; document.createElement(&#x27;script&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 22:15</td>
+                                <td class="x--col-2">_SNOW0001</td>
+                                <td class="x--col-3">Dont use document object for DOM manipulation</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [21]: 	var head &#x3D; document.getElementsByTagName(&#x27;head&#x27;)[0];
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [22]: 	var script &#x3D; document.createElement(&#x27;script&#x27;);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [23]: 	script.type &#x3D; &#x27;text/javascript&#x27;;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 28:1</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [27]: 
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [28]: var surf_form &#x3D; {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [29]: 	isValidSelect : function(control) {
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 33:10</td>
+                                <td class="x--col-2">_SNOW0001</td>
+                                <td class="x--col-3">Do not use gel in client side code</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [32]: 	getElementWithPrefix : function(p, name) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [33]: 		return gel(p + &quot;.&quot; + g_form.tableName + &quot;.&quot; + name);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [34]: 	},
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 70:1</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [69]:  */
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [70]: var ssaOppForm &#x3D; {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [71]: 	
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 336:4</td>
+                                <td class="x--col-2">_SNOW0007</td>
+                                <td class="x--col-3">Console Log Found : console.error.</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [335]: 		} catch (e) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [336]: 			console
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [337]: 			.error(&quot;SSA Opportunity Form - _handleCalculateTermAndDatesResponse encountered an exception: &quot;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 386:4</td>
+                                <td class="x--col-2">_SNOW0007</td>
+                                <td class="x--col-3">Console Log Found : console.error.</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [385]: 			} catch (e) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [386]: 			console
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [387]: 			.error(&quot;SSA Opportunity Form - onBaseCurrencyChange encountered an exception: &quot;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 437:4</td>
+                                <td class="x--col-2">_SNOW0007</td>
+                                <td class="x--col-3">Console Log Found : console.error.</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [436]: 		} catch (e) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [437]: 			console
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [438]: 			.error(&quot;SSA Opportunity Form - onBaseCurrencyChange encountered an exception: &quot;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 467:4</td>
+                                <td class="x--col-2">_SNOW0007</td>
+                                <td class="x--col-3">Console Log Found : console.error.</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [466]: 		} catch (e) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [467]: 			console
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [468]: 			.error(&quot;SSA Opportunity Form - _openBaseCurrencyChangeDialog encountered an exception: &quot;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 507:4</td>
+                                <td class="x--col-2">_SNOW0007</td>
+                                <td class="x--col-3">Console Log Found : console.error.</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [506]: 		} catch (e) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [507]: 			console
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [508]: 			.error(&quot;SSA Opportunity Form - onAccountChange encountered an exception: &quot;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 527:4</td>
+                                <td class="x--col-2">_SNOW0007</td>
+                                <td class="x--col-3">Console Log Found : console.error.</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [526]: 		} catch (e) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [527]: 			console
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [528]: 			.error(&quot;SSA Opportunity Form - onBaseCurrencyChange encountered an exception: &quot;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 560:4</td>
+                                <td class="x--col-2">_SNOW0007</td>
+                                <td class="x--col-3">Console Log Found : console.error.</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [559]: 		} catch (e) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [560]: 			console
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [561]: 			.error(&quot;SSA Opportunity Form - _openBaseCurrencyChangeDialog encountered an exception: &quot;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 668:5</td>
+                                <td class="x--col-2">_SNOW0007</td>
+                                <td class="x--col-3">Console Log Found : console.log.</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [667]: 				
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [668]: 				console
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [669]: 				.log(&#x27;SHILPA _updateOpportunityValuesFromAjaxResponse : field : &#x27;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 706:4</td>
+                                <td class="x--col-2">_SNOW0007</td>
+                                <td class="x--col-3">Console Log Found : console.error.</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [705]: 		}catch (e) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [706]: 			console.error(&quot;SSA Opportunity Form - onContractTypeChange encountered an exception: &quot; + e);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [707]: 		}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 742:56</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [741]: 			});
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [742]: 			dialog.setPreference(&#x27;onPromptComplete&#x27;, function() {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [743]: 				//ssaOppForm._completeBaseCurrencyChange(control, oldValue,
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 748:4</td>
+                                <td class="x--col-2">_SNOW0007</td>
+                                <td class="x--col-3">Console Log Found : console.error.</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [747]: 		} catch (e) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [748]: 			console.error(&quot;SSA Opportunity Form - _openDeleteLinesDialog encountered an exception: &quot; + e);
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [749]: 		}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 775:3</td>
+                                <td class="x--col-2">_SNOW0003</td>
+                                <td class="x--col-3">Please change getXMLWait to getXML with a callback</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [774]: 		ga.addParam(&#x27;sysparm_sys_id&#x27;, g_form.getUniqueValue());
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [775]: 		ga.getXMLWait();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [776]: 		
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 786:3</td>
+                                <td class="x--col-2">_SNOW0003</td>
+                                <td class="x--col-3">Please change getXMLWait to getXML with a callback</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [785]: 		ga.addParam(&#x27;sysparm_sys_id&#x27;, g_form.getUniqueValue());
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [786]: 		ga.getXMLWait();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [787]: 		
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 824:5</td>
+                                <td class="x--col-2">_SNOW0007</td>
+                                <td class="x--col-3">Console Log Found : console.log.</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [823]: 			function processServerResponse(response) {
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [824]: 				console
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [825]: 				.log(&#x27;Processing response for  getFXRateForCurrencyCode&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 868:4</td>
+                                <td class="x--col-2">_SNOW0003</td>
+                                <td class="x--col-3">Please change getXMLWait to getXML with a callback</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [867]: 			getCurrencyAjax.addParam(&#x27;sysparm_country&#x27;, g_scratchpad.country);
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [868]: 			getCurrencyAjax.getXMLWait();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [869]: 			var answer &#x3D; getCurrencyAjax.getAnswer();
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script_client.do?sys_id=1e2ac595cd2961004ece809f6127f9a3" target="_blank">
+                            ValidateAddressWithSAP
+                        </a>
+                        [Client Script]
+                    </h6>
+ 
+                    <p>Error count: 6 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : yamuna.subramanian</p>
                     <table class="table table-hover table-inverse">
                         <thead>
                             <tr>
@@ -354,15 +1957,105 @@
                         <tbody>
                             <tr>
                                 <td class="x--col-2">Line 1:1</td>
-                                <td class="x--col-2">_SNOW0012</td>
-                                <td class="x--col-3"> function declaration not found</td>
-                                <td class="x--col-3">siddhartha.kadiyala</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
                                 <td class="x--col-5 code">
                                     <span class="error">
-                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                        [1]: var processDialogValidateAddress &#x3D; &#x27;&#x27;;
                                     </span>
                                     <br>                                     <span class="">
-                                        [2]: 
+                                        [2]: var hasExceptionCausedValidatingAddress &#x3D; false;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 2:1</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [1]: var processDialogValidateAddress &#x3D; &#x27;&#x27;;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [2]: var hasExceptionCausedValidatingAddress &#x3D; false;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [3]: 
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 153:16</td>
+                                <td class="x--col-2">_SNOW0001</td>
+                                <td class="x--col-3">Dont use document object for DOM manipulation</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [152]: 			dialog.setPreference(&#x27;onPromptComplete&#x27;, function(){
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [153]: 				gsftSubmit(document.getElementById(&#x27;sysverb_update_and_stay&#x27;));
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [154]: 			});
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 180:11</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [179]: 	}
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [180]: 	catch(ex){
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [181]: 	}
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 187:1</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [186]: 
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [187]: var ValidateAddressWithSAP &#x3D; {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [188]: 	
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 285:3</td>
+                                <td class="x--col-2">_SNOW0003</td>
+                                <td class="x--col-3">Please change getXMLWait to getXML with a callback</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [284]: 		//return ga.getXML(getXMLResponse); 		//  AJAX request - asynchronous	
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [285]: 		ga.getXMLWait();							//  AJAX request - synchronous	
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [286]: 
                                     </span>
                                     <br> 
                                 </td>
@@ -373,15 +2066,15 @@
 
                 <div class="file--container">
                     <h6>File Name :
-                        <a href="https://surfdev3.service-now.com/sys_script.do?sys_id=bf2365e8db420f0423f75e77dc961928" target="_blank">
-                            Sync email and user Id to employee
+                        <a href="https://surfdev5.service-now.com/sys_script_client.do?sys_id=1f3cb24a132b1200a5e739fed144b05a" target="_blank">
+                            MDM Secondary Address Variables
                         </a>
-                        [Business Rule]
+                        [Client Script]
                     </h6>
  
                     <p>Error count: 1 </p>
                     <p>Warning count: 0 </p>
-                    <p>File last modified by : pratul.agarwal</p>
+                    <p>File last modified by : yamuna.subramanian</p>
                     <table class="table table-hover table-inverse">
                         <thead>
                             <tr>
@@ -394,16 +2087,357 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="x--col-2">Line 1:1</td>
-                                <td class="x--col-2">_SNOW0012</td>
-                                <td class="x--col-3"> function declaration not found</td>
-                                <td class="x--col-3">pratul.agarwal</td>
+                                <td class="x--col-2">Line 3:19</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
                                 <td class="x--col-5 code">
-                                    <span class="error">
-                                        [1]: (function executeRule(current, previous /*null when async*/) {
+                                    <span class="">
+                                        [2]: 
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [3]: function onLoad() {
                                     </span>
                                     <br>                                     <span class="">
-                                        [2]: 
+                                        [4]:    //Type appropriate comment here, and begin script below
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script.do?sys_id=358a1569d4b565006f71c9dad778b54e" target="_blank">
+                            Pass info to client on load
+                        </a>
+                        [Business Rule]
+                    </h6>
+ 
+                    <p>Error count: 7 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : Rohan.Chandarana</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 12:2</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [11]: 	
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [12]: 	var firstRainSearchToken &#x3D; current.account.u_firstrain_search_token;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [13]: 	var hasFRAccess &#x3D; FirstRainFormSectionVisibility.hasFRAccess(gs.getUserID(), JSUtil.notNil(firstRainSearchToken));
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 39:14</td>
+                                <td class="x--col-2">_SNOW0014</td>
+                                <td class="x--col-3">Scripts should not have an empty blocks defined </td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [38]: 		
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [39]: 	} catch (e) {
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [40]: 		//gs.log(&quot;Calculate term months and days if empty &#x3D;&#x3D; : &quot; + e);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 44:2</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [43]: 	//***************Competition fields onDisplay
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [44]: 	var isAppliedType &#x3D; false;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [45]: 	var optyType &#x3D; current.type;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 45:2</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [44]: 	var isAppliedType &#x3D; false;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [45]: 	var optyType &#x3D; current.type;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [46]: 	var appliedOptyTypes &#x3D; &#x27;new_business, License Upsell, Renewal&#x27;;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 46:2</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [45]: 	var optyType &#x3D; current.type;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [46]: 	var appliedOptyTypes &#x3D; &#x27;new_business, License Upsell, Renewal&#x27;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [47]: 	isAppliedType &#x3D; appliedOptyTypes.indexOf(optyType) !&#x3D; -1;
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 50:2</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [49]: 	
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [50]: 	var isOther &#x3D; false;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [51]: 	if (JSUtil.notNil(current.u_primary_competitor)) {
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 88:2</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [87]: 	//***************Set Specific Data Center
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [88]: 	var dcUtil &#x3D; new DataCenterUtil();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [89]: 	g_scratchpad.specialDataCenter &#x3D; dcUtil.getSpecificDataCenter();
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script.do?sys_id=4bfaf2c187a1450006ffd0b92d434d76" target="_blank">
+                            Auto-create deployment
+                        </a>
+                        [Business Rule]
+                    </h6>
+ 
+                    <p>Error count: 1 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : ranjeeta.sunkad</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 2:1</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [1]: //JJ--stage is a mandatory field on the opportunity, means if stage is empty then opportunity is empty
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [2]: var oppStage &#x3D; current.opportunity.stage; 
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [3]: 
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script.do?sys_id=a3f3328060fb150006ff67b5f2e8949c" target="_blank">
+                            Default Services type start and end date
+                        </a>
+                        [Business Rule]
+                    </h6>
+ 
+                    <p>Error count: 3 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : ranjeeta.sunkad</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 2:1</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [1]: //Calculate start date
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [2]: var startDate &#x3D; new GlideDate();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [3]: startDate.setDisplayValue(current.close_date.getGlideObject().getDate().getDisplayValue());
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 7:1</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [6]: //Calculate End date
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [7]: var defaultTerm &#x3D; 1;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [8]: var endDate &#x3D; new GlideDateTime();
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 8:1</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [7]: var defaultTerm &#x3D; 1;
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [8]: var endDate &#x3D; new GlideDateTime();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [9]: endDate.setDisplayValueInternal(startDate + &#x27; 12:00:00&#x27;);
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="file--container">
+                    <h6>File Name :
+                        <a href="https://surfdev5.service-now.com/sys_script.do?sys_id=e78c215f6013510006ff67b5f2e8948c" target="_blank">
+                            Update Bill To/Ship To if fields change
+                        </a>
+                        [Business Rule]
+                    </h6>
+ 
+                    <p>Error count: 2 </p>
+                    <p>Warning count: 0 </p>
+                    <p>File last modified by : yamuna.subramanian</p>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Line#</th>
+                                <th>Rule Id</th>
+                                <th>Message</th>
+                                <th>Developer</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="x--col-2">Line 3:1</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [2]: var begin &#x3D; new GlideDateTime().getNumericValue();
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [3]: var logPrefix &#x3D; &quot;BR: Update Bill To/Ship To if fields change - &quot;;
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [4]: 
+                                    </span>
+                                    <br> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="x--col-2">Line 6:1</td>
+                                <td class="x--col-2">_SNOW0015</td>
+                                <td class="x--col-3">Do not declare variables in global scope</td>
+                                <td class="x--col-3"></td>
+                                <td class="x--col-5 code">
+                                    <span class="">
+                                        [5]: // Setup address object to help with debugging and searching.
+                                    </span>
+                                    <br>                                     <span class="error">
+                                        [6]: var address &#x3D; new Address();
+                                    </span>
+                                    <br>                                     <span class="">
+                                        [7]: 
                                     </span>
                                     <br> 
                                 </td>

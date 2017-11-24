@@ -84,8 +84,6 @@ async function main() {
             rcrUtil = require("./scripts/rcr-util");
             if (!choiceVal) util.showHelpText();
             else await rcrUtil.reviewFiles(choiceVal);
-            console.log(choiceVal);
-
             break;
 
         case "saveconfig":

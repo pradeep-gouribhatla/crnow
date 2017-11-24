@@ -70,6 +70,7 @@ module.exports = (function() {
             });
         } catch (error) {
             console.log(error);
+            process.exit(1);
         }
     };
 
@@ -223,10 +224,18 @@ module.exports = (function() {
 
                     const allData = jsonObj.root ? jsonObj.root : { "ins-node": [] };
                     const configObjArray = allData["ins-node"];
-                    const insNodeObj = Object.assign(configObject, { $: { name: configObject.instanceName } });
-                    configObjArray.push(insNodeObj);
-                    const ins_config_xml = xml_builder.buildObject({ root: allData });
+                    var _existingConfigObj = configObjArray.find(
+                        _cfgObj => _cfgObj.instanceName[0] == configObject.instanceName
+                    );
+                    if (_existingConfigObj) {
+                        _existingConfigObj.userName[0] = configObject.userName;
+                        _existingConfigObj.password[0] = configObject.password;
+                    } else {
+                        const insNodeObj = Object.assign(configObject, { $: { name: configObject.instanceName } });
+                        configObjArray.push(insNodeObj);
+                    }
 
+                    const ins_config_xml = xml_builder.buildObject({ root: allData });
                     fs.writeFileSync(configFile, ins_config_xml);
                 });
             } catch (error) {

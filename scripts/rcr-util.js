@@ -128,7 +128,7 @@ module.exports = (function() {
     }
 
     async function appendFilesSource(reviewResults) {
-        if (!Array.isArray(reviewResults)) return;
+        if (!Array.isArray(reviewResults) || reviewResults.length <= 0) return;
 
         const filesList = reviewResults.map(file => {
             return { fileType: file.class, fileSysId: file.fileSysId };
@@ -265,7 +265,7 @@ module.exports = (function() {
     };
 
     const reviewFiles = async function(filesObjArr) {
-        if (!Array.isArray(filesObjArr)) return [];
+        if (!Array.isArray(filesObjArr) || filesObjArr.length <= 0) return [];
         // Initialize instance
         await initialize();
         let reviewResultsList = [];
@@ -285,8 +285,7 @@ module.exports = (function() {
 
                 reviewResultsList.push(fileResults);
             } //}));
-
-            await appendFilesSource(reviewResultsList);
+            if (reviewResultsList.length > 0) await appendFilesSource(reviewResultsList);
 
             displayResults(reviewResultsList);
         } catch (error) {

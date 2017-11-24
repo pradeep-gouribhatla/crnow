@@ -103,14 +103,14 @@ module.exports = (function() {
     const syncAllRules = async function() {
         try {
             const snow_rules_dir = __dirname + "/.." + RCR.snow_rules_dir;
-            deleteFilesRecursive(snow_rules_dir, false);
 
-            console.log(snow_rules_dir);
-
-            if (!fs.existsSync("./snow-rules-git")) {
+            if (!fs.existsSync(snow_rules_dir)) {
                 //TODO::
                 //create  snow-rules-git folder
+                fs.mkdirSync(snow_rules_dir);
             }
+
+            deleteFilesRecursive(snow_rules_dir, false);
 
             console.log("******************************************");
             console.log("Downloading rules");

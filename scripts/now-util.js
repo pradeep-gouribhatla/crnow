@@ -231,7 +231,7 @@ module.exports = (function() {
     };
 
     const fetchMultipleFileTags = async function(filesList) {
-        if (!Array.isArray(filesList)) return;
+        if (!Array.isArray(filesList) || filesList.length <= 0) return;
 
         const insHttp = instance.getThisInstanceHttp();
         const res = await insHttp.request({

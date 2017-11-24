@@ -76,7 +76,7 @@ const RCR_CONSTANTS = {
     --reset            >> to reset rcr configurations
     --files '<files array>'      
                        >> to perform code review on file Ids 
-                       ex: crnow --file '[{“sysid”:”qajdjf”, “type”:”sys_script”}]'
+                       ex: crnow --file '[{“sys_id”:fa919f87c3007236d9f0zwfe961914, “type”:”sys_script”}]'
     --updateset <id>   >> to perform code review on update set files 
     --scopedapp <id>   >> to perform code review on scoped app files
     --duration <days>  >> to perform code review script files which are modified in last delta days
