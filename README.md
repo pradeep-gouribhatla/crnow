@@ -5,15 +5,14 @@ Servicen Now CLI code review tool
 ---
 
 / **_| | \ | | / _ \ \ \ / / | _ \ / _**| | \_ \ \_** \ | \| | | | | | \ \ /\ / / ___** | |_) | | | | |_) | **_) | | |\
-| | |_| | \ V V / |___**| | \_ < | |**_ | _ < |_\_**/ |_| \_| ___/ \_/\_/ |_| \_\ \___\_| |_| \_\
-
+| | |_| | \ V V / |___**| | \_ < | |**_ | _ < |_\_**/ |_| \_| \**_/ \_/\_/ |_| \_\ \_\**_| |_| \_\
 
 CRNOW usage instructions below:
 
     --configure        >> to configure initial setup
-                       (this also credentials and uploads RCR scoped app if not available)
+                       (this saves credentials locally and uploads RCR scoped app if not available)
     --saveconfig --instance <name> --user <userID> --password <password>
-                       >> to save instance details (this will not verify instance data and will not uploadscoped apps)
+                       >> to save instance details (this will not verify instance data and will not upload scoped apps, used in centralized setup)
     --syncrules        >> to sync/update custom and snow rules
     --update           >> to update rcr setup
     --reset            >> to reset rcr configurations
