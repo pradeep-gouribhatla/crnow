@@ -52,7 +52,7 @@ const RCR_CONSTANTS = {
 
     //all instance files (when delta is provided)
     //delta_files_api: "/api/now/v1/table/??",
-    delta_files_api_query: "sysparm_query=sys_updated_on%3Ejavascript%3Ags.daysAgoStart(__deltadays__)",
+    delta_files_api_query: "sysparm_query=sys_updated_on%3Ejavascript%3Ags.daysAgoStart(__deltadays__)%5Eactive%3Dtrue",
     delta_files_api_field_params: "name,type,target_name,payload",
 
     //tags for file
