@@ -73,6 +73,12 @@ module.exports = (function() {
                 userName: rcrArgsObj.user,
                 password: rcrArgsObj.password
             };
+        } else if (rcrArgsObj.saveinsconfig) {
+            choice = "saveinsconfig";
+            choiceVal = {
+                instanceName: rcrArgsObj.instance,
+                basicAuthStr: rcrArgsObj.basicauth
+            };
         }
 
         return {

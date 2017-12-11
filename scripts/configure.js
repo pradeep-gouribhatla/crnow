@@ -88,6 +88,19 @@ module.exports = (function() {
         }
     };
 
+    const saveInsAuthData = function(instanceName, basicAuthStr) {
+        const resp = (async function() {
+            const configObject = {
+                instanceName,
+                basicAuthStr
+            };
+            return await instance.saveToConfig(configObject);
+        })();
+
+        if (resp) util.showInfoLevelMessage("Instance Data saved succesfully");
+        else util.showErrMessage("Saving Instance Data failed");
+    };
+
     const saveInstanceData = function(instanceName, userName, password) {
         const resp = (async function() {
             const basicAuthStr = Buffer.from(userName + ":" + password).toString("base64");
@@ -185,6 +198,7 @@ module.exports = (function() {
 
     return {
         saveInstanceData,
+        saveInsAuthData,
         initialInstanceConfig,
         setInstanceAsDefault,
         syncAllRules,

@@ -92,6 +92,14 @@ async function main() {
             else await config.saveInstanceData(choiceVal.instanceName, choiceVal.userName, choiceVal.password);
             break;
 
+        case "saveinsconfig":
+            if (!choiceVal || !choiceVal.instanceName || !choiceVal.basicAuthStr) {
+                util.showHelpText();
+            } else {
+                await config.saveInsAuthData(choiceVal.instanceName, choiceVal.basicAuthStr);
+            }
+            break;
+
         case "help":
             util.showHelpText();
             break;
@@ -104,7 +112,7 @@ async function main() {
 
 /******************************
  ******************************
- * Calling Main 
+ * Calling Main
  ******************************
  ******************************/
 
