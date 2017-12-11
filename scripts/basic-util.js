@@ -45,7 +45,7 @@ module.exports = (function() {
 
         if (choice) return { choice };
 
-        if (!rcrArgsObj.instance) return {};
+        if (!rcrArgsObj.instance || typeof rcrArgsObj.instance != "string") return {};
         global.instanceName = rcrArgsObj.instance;
         global.json = rcrArgsObj.json;
         global.showAllFindings = rcrArgsObj.all;

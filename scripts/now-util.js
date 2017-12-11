@@ -99,17 +99,21 @@ module.exports = (function() {
         if (!fileClass || !fileSysID) return;
 
         const insHttp = instance.getThisInstanceHttp();
-        const res = await insHttp.get(RCR.table_api_url + fileClass + "/" + fileSysID);
-
-        if (res && res.status == 200) {
-            if (!res.data || !res.data.result) {
-                console.log("Oops! No data found in the script file.");
-                return;
+        try {
+            const res = await insHttp.get(RCR.table_api_url + fileClass + "/" + fileSysID);
+            if (res && res.status == 200) {
+                if (res.data && res.data.result) return res.data.result;
+                else throw new Error("Oops! No data found in the script file.");
+            } else {
+                throw new Error("Oops!! Failed to fetch file" + fileClass + ":" + fileSysID);
             }
-            return res.data.result;
-        } else {
-            throw new Error("Oops!! Failed to fetch file" + fileClass + ":" + fileSysID);
+        } catch (error) {
+            if (global.debug) {
+                console.log(error.response);
+                console.log("Oops!! Failed to fetch file" + fileClass + ":" + fileSysID);
+            }
         }
+        return;
     };
 
     const fetchScopedAppFiles = async function(scopedAppId) {

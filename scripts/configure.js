@@ -64,7 +64,9 @@ module.exports = (function() {
         }
 
         //configure instance data
-        await instance.configure(configObject.instanceName, configObject.userName, configObject.password);
+        //btoa(configObject.userName + ":" + configObject.password);
+        const basicAuthStr = Buffer.from(configObject.userName + ":" + configObject.password).toString("base64");
+        await instance.configure(configObject.instanceName, basicAuthStr);
 
         // Configure RCR prerequisites
         await instance.configureRCRprerequisites();
@@ -88,10 +90,10 @@ module.exports = (function() {
 
     const saveInstanceData = function(instanceName, userName, password) {
         const resp = (async function() {
+            const basicAuthStr = Buffer.from(userName + ":" + password).toString("base64");
             const configObject = {
                 instanceName,
-                userName,
-                password
+                basicAuthStr
             };
             return await instance.saveToConfig(configObject);
         })();

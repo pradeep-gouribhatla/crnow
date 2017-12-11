@@ -58,8 +58,7 @@ module.exports = (function() {
 
                 _iConfigObject = {
                     instanceName: configObject.instanceName[0],
-                    userName: configObject.userName[0],
-                    password: configObject.password[0]
+                    basicAuthStr: configObject.basicAuthStr[0]
                 };
 
                 _isInstanceConfigured = true;
@@ -102,29 +101,27 @@ module.exports = (function() {
         return _instanceHttpClient;
     };
 
-    const saveInstanceData = async function(instanceName, userName, password) {
+    const saveInstanceData = async function(instanceName, basicAuthStr) {
         const configObject = {
             instanceName,
-            userName,
-            password
+            basicAuthStr
         };
         saveToConfig(configObject);
     };
 
     /*
         Cofigure snow instance and save to config file
-        @args : instanceName, userName, password
+        @args : instanceName, basicAuthStr
         @return : boolean
     */
-    const configure = async function(instanceName, userName, password) {
-        if (!instanceName || !userName || !password) {
+    const configure = async function(instanceName, basicAuthStr) {
+        if (!instanceName || !basicAuthStr) {
             throw new Error("Not valid instance data");
         }
 
         _iConfigObject = {
             instanceName,
-            userName,
-            password
+            basicAuthStr
         };
 
         const resp = await verifyInstanceData(_iConfigObject);
@@ -148,7 +145,7 @@ module.exports = (function() {
         Verify
         1. Instance URL and credentials
         2. If user has admin access
-        @arg : instanceConfig (instanceName, userName, password)
+        @arg : instanceConfig (instanceName, basicAuthStr)
         @return : boolean
     */
     const verifyInstanceData = async function(instanceConfig) {
@@ -201,8 +198,7 @@ module.exports = (function() {
 
     /*
         Create a xml file with instance URL and user credentials
-        TODO:: Should we save encrypted password or atleast basic auth header.
-        @arg : instanceConfig (instanceName, userName, password)
+        @arg : instanceConfig (instanceName, basicAuthStr)
         @return : boolean
     */
     const saveToConfig = function(configObject) {
@@ -228,8 +224,7 @@ module.exports = (function() {
                         _cfgObj => _cfgObj.instanceName[0] == configObject.instanceName
                     );
                     if (_existingConfigObj) {
-                        _existingConfigObj.userName[0] = configObject.userName;
-                        _existingConfigObj.password[0] = configObject.password;
+                        _existingConfigObj.basicAuthStr[0] = configObject.basicAuthStr;
                     } else {
                         const insNodeObj = Object.assign(configObject, { $: { name: configObject.instanceName } });
                         configObjArray.push(insNodeObj);
@@ -276,10 +271,8 @@ module.exports = (function() {
         @return : Auth header
     */
     const getAuthHeader = function() {
-        if (!_iConfigObject.userName || !_iConfigObject.password) return;
-        let auth_token = "Basic ";
-        auth_token += Buffer.from(_iConfigObject.userName + ":" + _iConfigObject.password).toString("base64");
-        return auth_token;
+        if (!_iConfigObject.basicAuthStr) return;
+        return "Basic " + _iConfigObject.basicAuthStr;
     };
 
     /*

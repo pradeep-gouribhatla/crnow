@@ -289,6 +289,7 @@ module.exports = (function() {
 
             displayResults(reviewResultsList);
         } catch (error) {
+            console.log(error);
             console.error("Oops!! Something went wrong. Failed to parse files");
             process.exit(1);
         }
@@ -304,8 +305,8 @@ module.exports = (function() {
         //console.dir(rules);
 
         /******************************************************
-        ********             REVIEW FILE               ********
-        *******************************************************/
+         ********             REVIEW FILE               ********
+         *******************************************************/
         let _results = reviewFile(script, rules, scriptFName);
         /******************************************************/
 
